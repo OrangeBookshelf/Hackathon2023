@@ -28,8 +28,13 @@ private:
 
 class Floor {
 	Room rooms[16];
+
 };
 
 class Dungeon {
+public:
+	void generate();
+
 	Floor floors[5];
 };
+
