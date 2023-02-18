@@ -1,5 +1,2 @@
-#include "hackathon.hpp"
+#include "Character.hpp"
 
-class Character {
-
-};
