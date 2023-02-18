@@ -27,6 +27,9 @@ private:
 };
 
 class Floor {
+public:
+	void setFloor(Floor floor);
+private:
 	Room rooms[16];
 
 };
