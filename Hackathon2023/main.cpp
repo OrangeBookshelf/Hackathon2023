@@ -36,19 +36,22 @@ int main(void)
 
 
     }
-    Accessories invSlots[9] = { {0, "Empty", "Empty"}, {0, "Empty", "Empty"}, {0, "Empty", "Empty"}, {0, "Empty", "Empty"},
-    {0, "Empty", "Empty"}, {0, "Empty", "Empty"}, {0, "Empty", "Empty"}, {0, "Empty", "Empty"}, {0, "Empty", "Empty"} };
+    Accessories invSlots[9] = { {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"},
+    {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"} };
+    
+    Accessories Helmets[6] = { {10, COMMON, "Cap", "Cap"}, {10, COMMON, "Chaincap", "Chaincap"}, {15, RARE, "Ironhelm", "Ironhelm"},
+        {15, RARE, "Hood", "Hood"}, {20, EPIC, "Steelhelm", "Steelhelm"}, {25, LEGENDARY, "Templarhelm", "Templarhelm"}};
+    
+    Accessories ChestPiece[6] = { {2, COMMON, "Rags", "Rags"}, {3, COMMON, "Robes", "Robes"}, {5, RARE, "Chestplate", "Chestplate"},
+        {5, RARE, "Chainmail", "Chainmail"}, {7, EPIC, "Heavyplate", "Heavyplate"}, {10, LEGENDARY, "Templarplate", "Templarplate"} };
 
-    Accessories Helmets[6] = { {10, "Cap", "Cap"}, {10, "Chaincap", "Chaincap"}, {15, "Ironhelm", "Ironhelm"},
-        {15, "Hood", "Hood"}, {20, "Steelhelm", "Steelhelm"}, {25, "Templarhelm", "Templarhelm"}};
-    Accessories ChestPiece[6] = { {2, "Rags", "Rags"}, {3, "Robes", "Robes"}, {5, "Chestplate", "Chestplate"},
-        {5, "Chainmail", "Chainmail"}, {7, "Heavyplate", "Heavyplate"}, {10, "Templarplate", "Templarplate"} };
-    Accessories Weapons[6] = { {3, "Dagger", "Dagger" }, { 3, "Knife", "Knife" }, {4, "Sword", "Sword"}, 
-        {4, "Hatchet", "Hatchet"}, {5, "Longsword", "Longsword"}, {5, "Axe", "Axe"}};
-    Accessories Boots[6] = { {5, "Tornboot", "Tornboot"}, {5, "Peasantboots", "Peasantboots"}, {10, "Greaves", "Greaves"},
-        {15, "Bootshoe", "Bootshoe"}, {20, "Steeltipped", "Steeltipped"}, {30, "Templarboots", "Templarboots"}};
+    Accessories Weapons[6] = { {3, COMMON, "Dagger", "Dagger" }, { 3, COMMON, "Knife", "Knife" }, {4, RARE, "Sword", "Sword"}, 
+        {4, RARE, "Hatchet", "Hatchet"}, {5, EPIC, "Axe", "Axe"}, {6, LEGENDARY, "Longsword", "Longsword"} };
 
-    Accessories floorItem = { 0, "Empty", "Empty" };
+    Accessories Boots[6] = { {5, COMMON, "Tornboot", "Tornboot"}, {5, COMMON, "Peasantboots", "Peasantboots"}, {10, RARE, "Greaves", "Greaves"},
+        {15, RARE, "Bootshoe", "Bootshoe"}, {20, EPIC, "Steeltipped", "Steeltipped"}, {30, LEGENDARY, "Templarboots", "Templarboots"}};
+
+    Accessories floorItem = { 0, NONE, "Empty", "Empty" };
    
     Character player;
     player.Health = 100;
@@ -57,10 +60,10 @@ int main(void)
     player.SpD = 25;
     Character enemy;
 
-    floorItem = player.Inventory(1, 5, "Knife", "Long Burger", VIEW, invSlots);
-    player.Inventory(1, 5, "Knife", "Long Burger", PICKUP, invSlots);
-    player.Inventory(1, 5, "Knife", "Long Burger", VIEW, invSlots);
-    floorItem = player.Inventory(1, 5, "Knife", "Long Burger", DROP, invSlots);
+    floorItem = player.Inventory(1, 5, "Knife", LEGENDARY, "Long Burger", VIEW, invSlots);
+    player.Inventory(1, 5, "Knife", LEGENDARY, "Long Burger",PICKUP, invSlots);
+    player.Inventory(1, 5, "Knife", LEGENDARY, "Long Burger", VIEW, invSlots);
+    floorItem = player.Inventory(1, 5, "Knife", LEGENDARY, "Long Burger", DROP, invSlots);
 
     enemy = Enemy(3);
     std::cout << enemy.Name << std::endl;

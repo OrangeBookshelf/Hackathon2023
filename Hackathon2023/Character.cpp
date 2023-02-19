@@ -1,10 +1,11 @@
 #include "Character.hpp"
 
-Accessories Character::Inventory(int pos, int dmgMod, std::string weaponType, 
+Accessories Character::Inventory(int pos, int dmgMod, std::string weaponType, Rarity howRare,
     std::string weaponName, Maintain maintain, Accessories (&MySlots)[9])
 {
     Accessories tempItem;
     tempItem.attributeMod = 0;
+    tempItem.itemRarity = NONE;
     tempItem.weaponName = "Empty";
     tempItem.weaponType = "Empty";
 
@@ -18,6 +19,7 @@ Accessories Character::Inventory(int pos, int dmgMod, std::string weaponType,
     else if (maintain == PICKUP)
     {
         MySlots[pos].attributeMod = dmgMod;
+        MySlots[pos].itemRarity = howRare;
         MySlots[pos].weaponName = weaponName;
         MySlots[pos].weaponType = weaponType;
         std::cout << MySlots[pos].weaponType << " - - - \"" << MySlots[pos].weaponName << "\"\nDamage Modifier: "
@@ -27,13 +29,20 @@ Accessories Character::Inventory(int pos, int dmgMod, std::string weaponType,
     else if (maintain == DROP)
     {
         tempItem.attributeMod = MySlots[pos].attributeMod;
+        tempItem.itemRarity = MySlots[pos].itemRarity;
         tempItem.weaponName = MySlots[pos].weaponName;
         tempItem.weaponType = MySlots[pos].weaponType;
         MySlots[pos].attributeMod = 0;
+        MySlots[pos].itemRarity = NONE;
         MySlots[pos].weaponName = "Empty";
         MySlots[pos].weaponType = "Empty";
     }
     return tempItem;
+}
+
+void characterEquip()
+{
+    
 }
 
 Character Enemy(int enemyType)
