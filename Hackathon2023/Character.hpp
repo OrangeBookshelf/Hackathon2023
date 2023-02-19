@@ -23,5 +23,10 @@ public:
 	Accessories Boots;
 };
 
+Character Enemy(int enemyType);
+
+void attack(Character attacker, Character defender, int prep);
+
+void heal(Character player, int prep);
 void characterEquip();
 Character Enemy(int enemyType);

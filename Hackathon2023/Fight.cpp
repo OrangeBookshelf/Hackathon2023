@@ -1,6 +1,7 @@
 #include "Character.hpp"
 
 
+
 void attack(Character attacker, Character defender, int prep)
 {
 	//prep: 1 = attack doesn't miss, 2 = attack does extra damage
@@ -31,7 +32,7 @@ void attack(Character attacker, Character defender, int prep)
 		{
 			if (crement == 1)
 			{
-				attackDamage = (attacker.Atk - range - defender.Def) * 2.2;
+				attackDamage = int((attacker.Atk - range - defender.Def) * 2.2);
 			}
 			else if (crement == 2)
 			{
@@ -39,7 +40,7 @@ void attack(Character attacker, Character defender, int prep)
 			}
 			else
 			{
-				attackDamage = (attacker.Atk + range - defender.Def) * 2.2;
+				attackDamage = int((attacker.Atk + range - defender.Def) * 2.2);
 			}
 			defender.Health = defender.Health - attackDamage;
 			std::cout << attacker.Name << " " << "hits for " << attackDamage << " " << "damage!" << std::endl;
@@ -75,19 +76,24 @@ void attack(Character attacker, Character defender, int prep)
 	}
 }
 
+
+
 void heal(Character player, int prep)
 {
 	double percentage = 0.0;
+
 	if (prep == 3)
 	{
 		percentage = (100 + player.Helmet.attributeMod) * .5;
-		player.Health += percentage;
-		std::cout << "You healed for " << percentage << " " << "Health!" << std::endl;
+		player.Health += int(percentage);
+		std::cout << "You healed for " << int(percentage) << " " << "Health!" << std::endl;
 	}
 	else
 	{
-		percentage = (100 + player.Helmet.attributeMod) * .25;
-		player.Health += percentage;
-		std::cout << "You healed for " << percentage << " " << "Health!" << std::endl;
+		percentage = double(100 + player.Helmet.attributeMod) * .25;
+
+
+		player.Health += int(percentage);
+		//std::cout << "You healed for " << int(percentage) << " " << "Health!" << std::endl;
 	}
 }
