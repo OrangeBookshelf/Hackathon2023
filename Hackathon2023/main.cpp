@@ -75,7 +75,12 @@ int main(void)
         while (levelTier != 4 && player.Health > 0)
         {
             //this where game go
-            player.Health = 0;
+            
+            //print room
+
+            //give/get options
+
+            //move if needed
 
         }
 
