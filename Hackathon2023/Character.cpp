@@ -515,8 +515,8 @@ BigBoss Boss(int bossType)
     if (bossType == 1)
     {
         thisBoss.Name = "Paladin";
-        thisBoss.Health = 250;
-        thisBoss.Atk = 50;
+        thisBoss.Health = 125;
+        thisBoss.Atk = 45;
         thisBoss.Def = 15;
         thisBoss.SpD = 15;
     }
@@ -531,8 +531,8 @@ BigBoss Boss(int bossType)
     else if (bossType == 3)
     {
         thisBoss.Name = "Centaur";
-        thisBoss.Health = 300;
-        thisBoss.Atk = 55;
+        thisBoss.Health = 150;
+        thisBoss.Atk = 50;
         thisBoss.Def = 5;
         thisBoss.SpD = 50;
     }
