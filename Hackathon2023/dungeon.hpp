@@ -10,6 +10,10 @@ class Room {
 public:
 	//constructor
 	Room();
+
+	//print the room
+	void printRoom();
+
 	//mutators
 	void setType(int newType);
 	void setEnemy(void);
@@ -44,6 +48,8 @@ class Floor {
 public:
 	//constructor
 	Floor();
+
+	Room* getRooms();
 
 	void setFloor(Floor& floor);
 
