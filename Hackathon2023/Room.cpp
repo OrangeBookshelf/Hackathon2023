@@ -1,5 +1,18 @@
 #include "dungeon.hpp"
 
+//constructor
+Room::Room() {
+	roomType = ENTRANCE;
+	isOccupied = false;
+	isEnemy = false;
+	doors = 0;
+
+	north = false;
+	south = false;
+	east = false;
+	west = false;
+}
+
 void Room::setType(int newType)
 {
 	if (newType == 1)
@@ -78,6 +91,21 @@ void Room::setDoors(void)
 	}
 }
 
+void Room::setDirection(int direction) {
+	if (direction == 0) {
+		north = true;
+	}
+	if (direction == 1) {
+		south = true;
+	}
+	if (direction == 1) {
+		east = true;
+	}
+	if (direction == 1) {
+		west = true;
+	}
+}
+
 
 
 Type Room::getType()
@@ -99,3 +127,21 @@ int Room::getDoors()
 {
 	return doors;
 }
+
+bool Room::getDirection(int direction) {
+	bool temp = false;
+	if (direction == 0) {
+		temp = north;
+	}
+	if (direction == 1) {
+		temp = south;
+	}
+	if (direction == 2) {
+		temp = east;
+	}
+	if (direction == 3) {
+		temp = west;
+	}
+	return temp;
+}
+

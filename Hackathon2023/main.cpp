@@ -2,6 +2,7 @@
 #include "Accessories.hpp"
 #include "Character.hpp"
 #include "dungeon.hpp"
+#include "dungeonTest.hpp"
 
 int main(void) 
 {
@@ -17,6 +18,7 @@ int main(void)
 
     if (menuChoice == 1)
     {
+        testSetFloor();
         system("pause");
         system("cls");
 
