@@ -31,7 +31,7 @@ public:
 	//
 
 	void populateRoom(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
-		Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE]);
+		Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier);
 
 
 private:
@@ -53,7 +53,8 @@ public:
 
 	Room* getRooms();
 
-	void setFloor(Floor& floor);
+	void setFloor(Floor& floor, Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
+		Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier);
 
 	void printFloorType(Floor floor);
 
@@ -67,7 +68,8 @@ public:
 	//constructor
 	Dungeon();
 
-	void generate(Dungeon& dungeon);
+	void generate(Dungeon& dungeon, Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
+		Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier);
 
 	Floor floors[5];
 };

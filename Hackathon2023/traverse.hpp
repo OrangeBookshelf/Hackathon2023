@@ -3,8 +3,10 @@
 #include "dungeon.hpp"
 #include "Character.hpp"
 
-void placeAtStart(Character player, Dungeon dungeon);
+void placeAtStart(Character player, Dungeon& dungeon, Room** currentLocation);
 
-void findPlayer(Dungeon dungeon);
+void findPlayer(int* floorNumber, int* roomNumber,Dungeon& dungeon, Room ** currentLocation);
 
-void moveRight(Dungeon dungeon);
+void moveRight(int* floorNumber, int* roomNumber, Dungeon& dungeon, Room ** currentLocation);
+
+void moveLeft(int* floorNumber, int* roomNumber, Dungeon& dungeon, Room** currentLocation);
