@@ -18,6 +18,10 @@ Accessories Character::Inventory(int pos, int dmgMod, std::string weaponType, Ra
     //Picking up a weapon
     else if (maintain == PICKUP)
     {
+        tempItem.attributeMod = MySlots[pos].attributeMod;
+        tempItem.itemRarity = MySlots[pos].itemRarity;
+        tempItem.weaponName = MySlots[pos].weaponName;
+        tempItem.weaponType = MySlots[pos].weaponType;
         MySlots[pos].attributeMod = dmgMod;
         MySlots[pos].itemRarity = howRare;
         MySlots[pos].weaponName = weaponName;
@@ -39,12 +43,92 @@ Accessories Character::Inventory(int pos, int dmgMod, std::string weaponType, Ra
     }
     return tempItem;
 }
-
-void characterEquip()
+//Equips accessory in a specific position
+void characterEquip(int pos, Accessories(&MySlots)[9], Character& Player)
 {
-    
-}
+    std::string whichType = MySlots[pos].weaponType;
 
+    Player.Health = 100;
+    Player.Atk = 35;
+    Player.Def = 5;
+    Player.SpD = 25;
+
+    Accessories tempItem;
+    tempItem.attributeMod = 0;
+    tempItem.itemRarity = NONE;
+    tempItem.weaponName = "Empty";
+    tempItem.weaponType = "Empty";
+
+    if (whichType == "Helmet")
+    {
+        tempItem.attributeMod = Player.Helmet.attributeMod;
+        tempItem.itemRarity = Player.Helmet.itemRarity;
+        tempItem.weaponName = Player.Helmet.weaponName;
+        tempItem.weaponType = Player.Helmet.weaponType;
+        Player.Helmet.attributeMod = MySlots[pos].attributeMod;
+        Player.Helmet.itemRarity = MySlots[pos].itemRarity;
+        Player.Helmet.weaponName = MySlots[pos].weaponName;
+        Player.Helmet.weaponType = MySlots[pos].weaponType;
+        MySlots[pos].attributeMod = tempItem.attributeMod;
+        MySlots[pos].itemRarity = tempItem.itemRarity;
+        MySlots[pos].weaponName = tempItem.weaponName;
+        MySlots[pos].weaponType = tempItem.weaponType;
+
+        Player.Health += Player.Helmet.attributeMod;
+    }
+    else if (whichType == "ChestPiece")
+    {
+        tempItem.attributeMod = Player.Chestplate.attributeMod;
+        tempItem.itemRarity = Player.Chestplate.itemRarity;
+        tempItem.weaponName = Player.Chestplate.weaponName;
+        tempItem.weaponType = Player.Chestplate.weaponType;
+        Player.Chestplate.attributeMod = MySlots[pos].attributeMod;
+        Player.Chestplate.itemRarity = MySlots[pos].itemRarity;
+        Player.Chestplate.weaponName = MySlots[pos].weaponName;
+        Player.Chestplate.weaponType = MySlots[pos].weaponType;
+        MySlots[pos].attributeMod = tempItem.attributeMod;
+        MySlots[pos].itemRarity = tempItem.itemRarity;
+        MySlots[pos].weaponName = tempItem.weaponName;
+        MySlots[pos].weaponType = tempItem.weaponType;
+
+        Player.Def += Player.Chestplate.attributeMod;
+    }
+    else if (whichType == "Weapons")
+    {
+        tempItem.attributeMod = Player.Weapon.attributeMod;
+        tempItem.itemRarity = Player.Weapon.itemRarity;
+        tempItem.weaponName = Player.Weapon.weaponName;
+        tempItem.weaponType = Player.Weapon.weaponType;
+        Player.Weapon.attributeMod = MySlots[pos].attributeMod;
+        Player.Weapon.itemRarity = MySlots[pos].itemRarity;
+        Player.Weapon.weaponName = MySlots[pos].weaponName;
+        Player.Weapon.weaponType = MySlots[pos].weaponType;
+        MySlots[pos].attributeMod = tempItem.attributeMod;
+        MySlots[pos].itemRarity = tempItem.itemRarity;
+        MySlots[pos].weaponName = tempItem.weaponName;
+        MySlots[pos].weaponType = tempItem.weaponType;
+
+        Player.Atk += Player.Weapon.attributeMod;
+    }
+    else if (whichType == "Boots")
+    {
+        tempItem.attributeMod = Player.Boots.attributeMod;
+        tempItem.itemRarity = Player.Boots.itemRarity;
+        tempItem.weaponName = Player.Boots.weaponName;
+        tempItem.weaponType = Player.Boots.weaponType;
+        Player.Boots.attributeMod = MySlots[pos].attributeMod;
+        Player.Boots.itemRarity = MySlots[pos].itemRarity;
+        Player.Boots.weaponName = MySlots[pos].weaponName;
+        Player.Boots.weaponType = MySlots[pos].weaponType;
+        MySlots[pos].attributeMod = tempItem.attributeMod;
+        MySlots[pos].itemRarity = tempItem.itemRarity;
+        MySlots[pos].weaponName = tempItem.weaponName;
+        MySlots[pos].weaponType = tempItem.weaponType;
+
+        Player.SpD += Player.Boots.attributeMod;
+    }
+}
+//Determines which enemy is encounted or if none
 Character Enemy(int enemyType)
 {
     Character thisEnemy;
@@ -82,7 +166,7 @@ Character Enemy(int enemyType)
     }
     return thisEnemy;
 }
-
+//Determines which boss is going to be fought or none at all
 BigBoss Boss(int bossType)
 {
     BigBoss thisBoss;
