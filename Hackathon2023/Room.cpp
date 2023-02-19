@@ -86,6 +86,10 @@ void Room::setOccupied(int occupied)
 //	}
 //}
 
+void Room::setEnd(bool end) {
+	isEnd = end;
+}
+
 
 
 

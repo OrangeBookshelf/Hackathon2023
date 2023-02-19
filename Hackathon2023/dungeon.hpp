@@ -13,6 +13,7 @@ public:
 	void setType(int newType);
 	void setEnemy(void);
 	void setOccupied(int occupied);
+	void setEnd(bool end);
 	//void setDoors(void);
 
 	//accessors
