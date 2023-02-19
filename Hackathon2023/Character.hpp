@@ -44,5 +44,5 @@ Character Enemy(int enemyType);
 void characterEquip();
 Character Enemy(int enemyType);
 
-void bossAttack(BigBoss attacker, Character defender);
+void bossAttack(BigBoss attacker, Character defender, int prep);
 void attackBoss(BigBoss defender, Character attacker, int prep);

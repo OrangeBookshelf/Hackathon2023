@@ -31,15 +31,6 @@ int main(void)
 
         //this is where the entire program goes
          
-        while (floor != 5)
-        {
-            
-
-
-
-
-            floor++;
-        }
 
 
     }
