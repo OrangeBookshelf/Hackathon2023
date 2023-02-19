@@ -493,6 +493,9 @@ void Room::populateRoom(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_S
 	Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier) {
 	setEnemy();
 	switch (roomType) {
+	case ENTRANCE:
+
+		break;
 	case BASIC:
 		if (rand() % 20 < 4) {
 			hasItem = true;
