@@ -138,6 +138,7 @@
   <ItemGroup>
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="dungeon.cpp" />
+    <ClCompile Include="Fight.cpp" />
     <ClCompile Include="dungeonTest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Room.cpp" />

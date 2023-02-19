@@ -7,7 +7,7 @@
 int main(void) 
 {
     srand(time(NULL));
-    int menuChoice = 0;
+    int menuChoice = 0, floor = 1, room = 0;
 
     std::cout << "GAME NAME" << std::endl;
     do
@@ -24,6 +24,15 @@ int main(void)
 
         //this is where the entire program goes
          
+        while (floor != 5)
+        {
+            
+
+
+
+
+            floor++;
+        }
 
     }
     
