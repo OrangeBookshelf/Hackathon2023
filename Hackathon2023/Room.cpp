@@ -46,7 +46,7 @@ int Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR_
 	Accessories(&MySlots)[9])
 {
 	int index = 1, chest = 0, loot = 0, enemy = 0, sneak = 0, floor = 0, exit = 0, choice = 0;
-	int lootedChest = 0, lootedLoot = 0, enemyStatus = 0, leave = 0, lootChoice = 0, equip = 0;
+	int lootedChest = 0, lootedLoot = 0, enemyStatus = 0, leave = 0, lootChoice = 0, equip = 0, nextRoom = 0;
 	Accessories enemyLoot;
 	Accessories droppedItem;
 	if ((*floorNum == 1 || *floorNum == 3 || *floorNum == 5) && roomType == EXIT)
@@ -229,11 +229,13 @@ int Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR_
 			}
 		}
 		return 2;
+		levelTier++;
 	}
 	else
 	{
 		while (leave == 0)
 		{
+			index = 1;
 			if (roomType == CHEST && lootedChest != 1)
 			{
 				std::cout << index << ": Loot the chest" << std::endl;
@@ -265,6 +267,12 @@ int Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR_
 			{
 				std::cout << index << ": Head lower in the dugeon" << std::endl;
 				floor = index;
+				index++;
+			}
+			if (roomType == ENTRANCE)
+			{
+				std::cout << index << ": Head further in the dugeon" << std::endl;
+				nextRoom = index;
 				index++;
 			}
 
@@ -357,6 +365,10 @@ int Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR_
 					return 1;
 					leave = 1;
 				}
+			}
+			else if (choice == nextRoom)
+			{
+				return 1;
 			}
 			else if (choice == floor)
 			{

@@ -40,10 +40,12 @@ int main(void)
     player.Atk = 35;
     player.Def = 5;
     player.SpD = 25;
+    Character enemy;
 
     Room* currentLocation = NULL;
     int floorNumber = 0;
     int roomNumber = 0;
+    int movement = 0;
 
     Dungeon dungeon;
 
@@ -73,13 +75,36 @@ int main(void)
         {
             //this where game go
             currentLocation->printRoom();
+            if (currentLocation->getEnemy() == true)
+            {
+                int en = (rand() % 3) + 1;
+                enemy = Enemy(en, levelTier);
+            }
+            movement = currentLocation->roomInteract(player, enemy, Helmets, ChestPiece, Weapons, Boots, levelTier, &floorNumber, invSlots);
             
+            if (movement == 1)
+            {
+                //next room
+                moveRight(&floorNumber, &roomNumber, dungeon, &currentLocation);
+            }
+            else if (movement == 2)
+            {
+                //new floor
+                descend(&floorNumber, &roomNumber, dungeon, &currentLocation);
+
+            }
+            else
+            {
+                //go back
+                moveLeft(&floorNumber, &roomNumber, dungeon, &currentLocation);
+
+            }
             //print room
 
             //give/get options
 
             //move if needed
-
+            roomNumber++;
         }
 
         if (levelTier == 4)
