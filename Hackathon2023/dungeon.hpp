@@ -11,6 +11,10 @@ class Room {
 public:
 	//constructor
 	Room();
+
+	//print the room
+	void printRoom();
+
 	//mutators
 	void setType(int newType);
 	void setEnemy(void);

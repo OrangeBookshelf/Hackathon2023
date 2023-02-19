@@ -129,7 +129,7 @@ void characterEquip(int pos, Accessories(&MySlots)[9], Character& Player)
     }
 }
 //Determines which enemy is encounted or if none
-Character Enemy(int enemyType)
+Character Enemy(int enemyType, int& levelTier)
 {
     Character thisEnemy;
     if (levelTier == 1)
@@ -251,7 +251,7 @@ Character Enemy(int enemyType)
 }
 //Determines loot pools for enemies
 Accessories itemLootpool(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
-    Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE])
+    Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier)
 {
     Accessories tempLoot;
     tempLoot.attributeMod = 0;
@@ -261,16 +261,16 @@ Accessories itemLootpool(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_
     
     int oddsIncrease = 1 - levelTier;
 
-    int random = rand() % 20;
+    int random = rand() % 20 + 1;
     if (random <= 10 - oddsIncrease)
     {
         tempLoot.itemRarity = COMMON;
     }
-    else if (random > 11 - oddsIncrease || random <= 15)
+    else if (random > 11 - oddsIncrease && random <= 15)
     {
         tempLoot.itemRarity = RARE;
     }
-    else if (random > 15 - oddsIncrease || random <= 19)
+    else if (random > 15 - oddsIncrease && random <= 19)
     {
         tempLoot.itemRarity = EPIC;
     }

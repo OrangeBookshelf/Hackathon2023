@@ -14,6 +14,31 @@ Room::Room() {
 	description = "description";
 }
 
+void Room::printRoom()
+{
+	std::cout << description << std::endl;
+	if (roomType == CHEST)
+	{
+		std::cout << "There is a chest in this room" << std::endl;
+	}
+	if (hasItem == true)
+	{
+		std::cout << "On the ground, you see an item that could be of use" << std::endl;
+	}
+	if (isEnemy == true)
+	{
+		std::cout << "There is an enemy at the far end of the room" << std::endl;
+	}
+	if (roomType == EXIT)
+	{
+		std::cout << "You can see the exit to the floor in this room" << std::endl;
+	}
+	if (isEnd == true && roomType != EXIT)
+	{
+		std::cout << "There are no other doors in this room than the one you came in" << std::endl;
+	}
+}
+
 void Room::setType(int newType)
 {
 	if (newType == 1)
