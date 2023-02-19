@@ -59,6 +59,8 @@ int Room::roomInteract(Character& player, Character& foe, Accessories(&Helms)[AR
 			//centaur
 			boss = Boss(3);
 			std::cout << "You see a centaur, ready to attack you. They look tough" << std::endl;
+			system("pause");
+			system("cls");
 			std::cout << R"(
                 00000
                0000000
@@ -116,6 +118,8 @@ int Room::roomInteract(Character& player, Character& foe, Accessories(&Helms)[AR
 		{
 			boss = Boss(2);
 			std::cout << "You see a Direwolf, eyeing you hungrily" << std::endl;
+			system("pause");
+			system("cls");
 			std::cout << R"(
    0     0
    00   0 0
@@ -169,6 +173,8 @@ int Room::roomInteract(Character& player, Character& foe, Accessories(&Helms)[AR
 		{
 			boss = Boss(1);
 			std::cout << "You see a Paladin, this is not going to be an easy fight" << std::endl;
+			system("pause");
+			system("cls");
 			std::cout << R"(
          0  00000
         0 00     0
