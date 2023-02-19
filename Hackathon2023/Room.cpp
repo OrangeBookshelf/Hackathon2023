@@ -51,17 +51,106 @@ int Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR_
 		BigBoss boss;
 		if (*floorNum == 1)
 		{
+			//centaur
 			boss = Boss(3);
+			std::cout << "You see a centaur, ready to attack you. They look tough" << std::endl;
+			std::cout << R"(
+                00000
+               0000000
+              000000000  0
+              000000000  000
+              000000000  000
+              000000000  0 00
+              000000000  0 00
+               0000000   0  0
+                0000     0  0
+                 0000    0  0
+               00000000000000
+              000000000000000
+              00000000   0  0
+              00 00000   0  0
+              00 00000   0  0
+                 00000   0 00
+     0000000000000000   0 00
+   000000000000000000   000
+  0000000000000000000   000
+ 000 000000000000000    0
+ 00  00000000000000
+ 00  00  00  00  00
+000  00  00  00  00
+000  00  00  00  00
+     00  00  00  00
+     00  00  00  00
+)" << std::endl;
 			startBossFight(player, boss, levelTier);
 		}
 		else if (*floorNum == 3)
 		{
 			boss = Boss(2);
+			std::cout << "You see a Direwolf, eyeing you hungrily" << std::endl;
+			std::cout << R"(
+   0     0
+   00   0 0
+   0 0  0 0
+   0 0000 00
+   0       0
+   0       0
+  00        00
+  0   00     000000000
+  0   0     0        0000
+ 00         0             0
+ 0       000               0
+000                        0
+00  000        0            0
+ 000  0         0       0   0
+       0        0       00   0
+       0  000  0000 00  00   0
+       0  0 0  0 00 000 0 0  0
+       0 0  0  0  000 00   0 0
+      0 00  0 0   00  000   0
+     000  00 0  0000 0000
+          000   000  000
+)" << std::endl;
 			startBossFight(player, boss, levelTier);
 		}
 		else
 		{
 			boss = Boss(1);
+			std::cout << "You see a Paladin, this is not going to be an easy fight" << std::endl;
+			std::cout << R"(
+         0  00000
+        0 00     0
+        0       0
+        0     00 00
+        0          0
+         0000    00
+     0   00   000
+    0 0 00       0000
+    0 0 0       00   0
+   0   00      0      0
+   0   00   000 0      0
+   0   0 000  0  0     0
+  0    0      0  0      0
+  0     0      0  0     0
+  0     0    00 0  00 000
+  0     00000    0       0
+ 0      0    0000 00   00
+0       00 00   0   000
+ 0   00000000000 0     0
+  0  0-------0  00  0000
+  0  0-------0   000   0
+  0   0-----0   00     0
+  0   0-----00 0  00  0  00
+   0 00-------00    00000--0
+   00----------0      0-----0
+   0 00-------000    0000--0
+    0 0-----000000000    00
+    0 0-----0   0
+     0-------0   0
+     0-------0   0
+     000000000   0
+     0000000000000
+)" << std::endl;
 			startBossFight(player, boss, levelTier);
 		}
 	}
