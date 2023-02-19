@@ -73,7 +73,6 @@ int main(void)
         {
             //this where game go
             currentLocation->printRoom();
-            player.Health = 0;
             
             //print room
 

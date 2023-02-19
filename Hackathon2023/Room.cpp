@@ -228,6 +228,7 @@ int Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR_
 				}
 			}
 		}
+		return 2;
 	}
 	else
 	{
