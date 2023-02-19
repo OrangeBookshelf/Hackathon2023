@@ -1,50 +1,74 @@
 #include "dungeon.hpp"
 
-Floor::Floor() {
-	//grid
-	for (int i = 0; i < 7; i++) {
-		for (int j = 0; j < 7; j++) {
-			Room holder;
-			grid[i][j] = holder;
-		}
+
+void Floor::printFloorType(Floor floor) {
+	for (int i = 0; i < 12; i++) {
+		std::cout << floor.rooms[i].getType()<<"->";
 	}
-	//rooms
-	for (int i = 0; i < 16; i++) {
+	std::cout << std::endl;
+}
+
+//constructor
+Floor::Floor() {
+	for (int i = 0; i < 12; i++) {
 		Room holder;
 		rooms[i] = holder;
 	}
 }
 
-void Dungeon::generate() {
-	//floor by floor
-	//create array of 16 rooms
-	//
+//constructor
+Dungeon::Dungeon() {
+	for (int i = 0; i < 5; i++) {
+		Floor holder;
+		floors[i] = holder;
+	}
 }
 
-void Floor::setFloor(Floor floor) {
+void Dungeon::generate(Dungeon& dungeon) {
+	for (int i = 0; i < 5; i++) {
+		dungeon.floors[i].Floor::setFloor(dungeon.floors[i]);
+	}
+}
+
+void Floor::setFloor(Floor& floor) {
 	int x = 0;
 	int y = 0;
 
 	int roomCount = 0;
-	//initialize floor array
-	
 
 	//place entrance
-	x = rand() % 7;
-	y = rand() % 7;
-
-	grid[y][x].setType(1);
-	grid[y][x].setDoors();
-
-	roomCount += grid[y][x].getDoors();
-
-
-	//set direction
-	for (int i = 0; i < grid[y][x].getDoors(); i++) {
-		int random = rand() % 4;
-		if (!grid[y][x].getDirection(random)) {
-			grid[y][x].setDirection(random);
+	floor.rooms[roomCount].setType(1);
+	roomCount++;
+	//place next 3
+	int chest = rand() % 3;
+	for (int i = 0; i < 3; i++) {
+		if (i == chest) {
+			floor.rooms[roomCount + i].setType(3);
+		}
+		else {
+			floor.rooms[roomCount + i].setType(2);
 		}
 	}
-
+	roomCount = 4;
+	//place next 4
+	chest = rand() % 4;
+	for (int i = 0; i < 4; i++) {
+		if (i == chest) {
+			floor.rooms[roomCount + i].setType(3);
+		}
+		else {
+			floor.rooms[roomCount + i].setType(2);
+		}
+	}
+	roomCount = 8;
+	//place last 4
+	int exit = rand() % 4;
+	for (int i = 0; i < 4; i++) {
+		if (i == exit) {
+			floor.rooms[roomCount + i].setType(4);
+		}
+		else {
+			floor.rooms[roomCount + i].setType(2);
+		}
+	}
 }
