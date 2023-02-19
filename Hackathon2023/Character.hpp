@@ -47,6 +47,8 @@ void bossAttack(BigBoss attacker, Character defender, int prep);
 void attackBoss(BigBoss defender, Character attacker, int prep);
 Accessories itemLootpool(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
 	Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier);
+Accessories bossLootpool(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
+	Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier);
 void startBossFight(Character player, BigBoss boss);
 
 void startFight(Character player, Character enemy);

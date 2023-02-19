@@ -48,11 +48,6 @@ void characterEquip(int pos, Accessories(&MySlots)[9], Character& Player)
 {
     std::string whichType = MySlots[pos].weaponType;
 
-    Player.Health = 100;
-    Player.Atk = 35;
-    Player.Def = 5;
-    Player.SpD = 25;
-
     Accessories tempItem;
     tempItem.attributeMod = 0;
     tempItem.itemRarity = NONE;
@@ -61,6 +56,7 @@ void characterEquip(int pos, Accessories(&MySlots)[9], Character& Player)
 
     if (whichType == "Helmet")
     {
+        Player.Health = 100;
         tempItem.attributeMod = Player.Helmet.attributeMod;
         tempItem.itemRarity = Player.Helmet.itemRarity;
         tempItem.weaponName = Player.Helmet.weaponName;
@@ -78,6 +74,8 @@ void characterEquip(int pos, Accessories(&MySlots)[9], Character& Player)
     }
     else if (whichType == "ChestPiece")
     {
+        Player.Def = 5;
+
         tempItem.attributeMod = Player.Chestplate.attributeMod;
         tempItem.itemRarity = Player.Chestplate.itemRarity;
         tempItem.weaponName = Player.Chestplate.weaponName;
@@ -95,6 +93,7 @@ void characterEquip(int pos, Accessories(&MySlots)[9], Character& Player)
     }
     else if (whichType == "Weapons")
     {
+        Player.Atk = 35;
         tempItem.attributeMod = Player.Weapon.attributeMod;
         tempItem.itemRarity = Player.Weapon.itemRarity;
         tempItem.weaponName = Player.Weapon.weaponName;
@@ -112,6 +111,8 @@ void characterEquip(int pos, Accessories(&MySlots)[9], Character& Player)
     }
     else if (whichType == "Boots")
     {
+        Player.SpD = 25;
+
         tempItem.attributeMod = Player.Boots.attributeMod;
         tempItem.itemRarity = Player.Boots.itemRarity;
         tempItem.weaponName = Player.Boots.weaponName;
@@ -377,6 +378,94 @@ Accessories itemLootpool(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_
         {
             tempLoot.weaponName = Boots[5].weaponName;
             tempLoot.attributeMod = Boots[5].attributeMod;
+        }
+        break;
+    }
+    return tempLoot;
+}
+
+Accessories bossLootpool(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
+    Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier)
+{
+    Accessories tempLoot;
+    tempLoot.attributeMod = 0;
+    tempLoot.itemRarity = NONE;
+    tempLoot.weaponName = "Empty";
+    tempLoot.weaponType = "Empty";
+
+    int findRarity = rand() % 4 + 1;
+
+    int findType = rand() % 4 + 1;
+
+    if (findRarity != 4)
+    {
+        tempLoot.itemRarity = EPIC;
+    }
+    else
+    {
+        tempLoot.itemRarity = LEGENDARY;
+    }
+
+    switch (findType)
+    {
+    //helmet
+    case 1:
+        if (tempLoot.itemRarity == EPIC)
+        {
+            tempLoot.attributeMod = Helms[4].attributeMod;
+            tempLoot.weaponName = Helms[4].weaponName;
+            tempLoot.weaponType = Helms[4].weaponType;
+        }
+        else
+        {
+            tempLoot.attributeMod = Helms[5].attributeMod;
+            tempLoot.weaponName = Helms[5].weaponName;
+            tempLoot.weaponType = Helms[5].weaponType;
+        }
+        break;
+    //chest
+    case 2:
+        if (tempLoot.itemRarity == EPIC)
+        {
+            tempLoot.attributeMod = Chest[4].attributeMod;
+            tempLoot.weaponName = Chest[4].weaponName;
+            tempLoot.weaponType = Chest[4].weaponType;
+        }
+        else
+        {
+            tempLoot.attributeMod = Chest[5].attributeMod;
+            tempLoot.weaponName = Chest[5].weaponName;
+            tempLoot.weaponType = Chest[5].weaponType;
+        }
+        break;
+    //weapon
+    case 3:
+        if (tempLoot.itemRarity == EPIC)
+        {
+            tempLoot.attributeMod = Weapon[4].attributeMod;
+            tempLoot.weaponName = Weapon[4].weaponName;
+            tempLoot.weaponType = Weapon[4].weaponType;
+        }
+        else
+        {
+            tempLoot.attributeMod = Weapon[5].attributeMod;
+            tempLoot.weaponName = Weapon[5].weaponName;
+            tempLoot.weaponType = Weapon[5].weaponType;
+        }
+        break;
+    //boots
+    case 4:
+        if (tempLoot.itemRarity == EPIC)
+        {
+            tempLoot.attributeMod = Boots[4].attributeMod;
+            tempLoot.weaponName = Boots[4].weaponName;
+            tempLoot.weaponType = Boots[4].weaponType;
+        }
+        else
+        {
+            tempLoot.attributeMod = Boots[5].attributeMod;
+            tempLoot.weaponName = Boots[5].weaponName;
+            tempLoot.weaponType = Boots[5].weaponType;
         }
         break;
     }
