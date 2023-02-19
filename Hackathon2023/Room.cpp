@@ -228,14 +228,14 @@ bool Room::getEnd()
 
 //isenemy, hasitem, what item
 void Room::populateRoom(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
-	Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE]) {
+	Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier) {
 	setEnemy();
 	switch (roomType) {
 	case BASIC:
 		if (rand() % 20 < 4) {
 			hasItem = true;
 			//item creation
-			item = itemLootpool(Helms, Chest, Weapon, Boots);
+			item = itemLootpool(Helms, Chest, Weapon, Boots, levelTier);
 		}
 		
 
@@ -244,7 +244,7 @@ void Room::populateRoom(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_S
 		hasItem = true;
 
 		//item creation
-		item = itemLootpool(Helms, Chest, Weapon, Boots);
+		item = itemLootpool(Helms, Chest, Weapon, Boots, levelTier);
 		break;		
 	}
 }

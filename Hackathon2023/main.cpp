@@ -5,7 +5,6 @@
 #include "dungeonTest.hpp"
 
 
-void roomInteract(Room room);
 
 int main(void) 
 {
@@ -82,7 +81,7 @@ int main(void)
 
     std::cout << invSlots[1].weaponName << std::endl;
     levelTier = 3;
-    lootItem = itemLootpool(Helmets, ChestPiece, Weapons, Boots);
+    lootItem = itemLootpool(Helmets, ChestPiece, Weapons, Boots, levelTier);
 
     std::cout << "aaaaaaaaaa" << lootItem.weaponName << std::endl;
 
@@ -94,7 +93,7 @@ int main(void)
     std::cout << player.Atk << std::endl;
     std::cout << invSlots[1].weaponName << std::endl;
 
-    enemy = Enemy(3, 1);
+    enemy = Enemy(3, levelTier);
     std::cout << enemy.Name << std::endl;
 
     player.Helmet.attributeMod = 0;

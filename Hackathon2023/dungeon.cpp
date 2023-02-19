@@ -24,9 +24,10 @@ Dungeon::Dungeon() {
 	}
 }
 
-void Dungeon::generate(Dungeon& dungeon) {
+void Dungeon::generate(Dungeon& dungeon, Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
+	Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier) {
 	for (int i = 0; i < 5; i++) {
-		dungeon.floors[i].Floor::setFloor(dungeon.floors[i]);
+		dungeon.floors[i].Floor::setFloor(dungeon.floors[i], Helms, Chest, Weapon, Boots, levelTier);
 	}
 }
 
@@ -35,7 +36,8 @@ Room* Floor::getRooms() {
 }
 
 
-void Floor::setFloor(Floor& floor) {
+void Floor::setFloor(Floor& floor, Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
+	Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier) {
 	int x = 0;
 	int y = 0;
 
@@ -43,7 +45,7 @@ void Floor::setFloor(Floor& floor) {
 
 	//place entrance
 	floor.rooms[roomCount].setType(1);
-	floor.rooms[roomCount].populateRoom();
+	floor.rooms[roomCount].populateRoom(Helms, Chest, Weapon, Boots, levelTier);
 	roomCount++;
 	//place next 3
 	int chest = rand() % 3;
@@ -54,7 +56,7 @@ void Floor::setFloor(Floor& floor) {
 		else {
 			floor.rooms[roomCount + i].setType(2);
 		}
-		floor.rooms[roomCount+i].populateRoom();
+		floor.rooms[roomCount+i].populateRoom(Helms, Chest, Weapon, Boots, levelTier);
 	}
 	roomCount = 4;
 	//place next 4
@@ -66,7 +68,7 @@ void Floor::setFloor(Floor& floor) {
 		else {
 			floor.rooms[roomCount + i].setType(2);
 		}
-		floor.rooms[roomCount + i].populateRoom();
+		floor.rooms[roomCount + i].populateRoom(Helms, Chest, Weapon, Boots, levelTier);
 
 	}
 	roomCount = 8;
@@ -79,7 +81,7 @@ void Floor::setFloor(Floor& floor) {
 		else {
 			floor.rooms[roomCount + i].setType(2);
 		}
-		floor.rooms[roomCount + i].populateRoom();
+		floor.rooms[roomCount + i].populateRoom(Helms, Chest, Weapon, Boots, levelTier);
 
 	}
 	floor.rooms[11].setEnd(true);
