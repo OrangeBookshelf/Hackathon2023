@@ -5,7 +5,3 @@
 #include<string>
 
 #define ARR_SIZE 6
-
-static int levelTier = 1;
-
-static int totalScore = 0;
