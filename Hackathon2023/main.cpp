@@ -66,6 +66,7 @@ int main(void)
     player.Def = 5;
     player.SpD = 25;
     Character enemy;
+    BigBoss boss;
 
     floorItem = player.Inventory(1, 5, "Knife", LEGENDARY, "Long Burger", VIEW, invSlots);
     player.Inventory(1, 5, "Knife", LEGENDARY, "Long Burger",PICKUP, invSlots);

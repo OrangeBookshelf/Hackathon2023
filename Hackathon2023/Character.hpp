@@ -41,3 +41,6 @@ void attack(Character attacker, Character defender, int prep);
 void heal(Character player, int prep);
 void characterEquip();
 Character Enemy(int enemyType);
+
+void bossAttack(BigBoss attacker, Character defender);
+void attackBoss(BigBoss defender, Character attacker, int prep);
