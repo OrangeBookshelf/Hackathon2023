@@ -39,5 +39,5 @@ BigBoss Boss(int bossType);
 void attack(Character attacker, Character defender, int prep);
 
 void heal(Character player, int prep);
-void characterEquip();
+void characterEquip(int pos, Accessories(&MySlots)[9], Character &Player);
 Character Enemy(int enemyType);
