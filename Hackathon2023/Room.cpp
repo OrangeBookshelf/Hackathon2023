@@ -44,7 +44,8 @@ void Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR
 	Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier, int*floorNum)
 {
 	int index = 1, chest = 0, loot = 0, enemy = 0, sneak = 0, floor = 0, exit = 0, choice = 0;
-	int lootedChest = 0, lootedLoot = 0, enemyStatus = 0, leave = 0;
+	int lootedChest = 0, lootedLoot = 0, enemyStatus = 0, leave = 0, lootChoice = 0;
+	Accessories enemyLoot;
 	if ((*floorNum == 1 || *floorNum == 3 || *floorNum == 5) && roomType == EXIT)
 	{
 		BigBoss boss;
@@ -82,6 +83,24 @@ void Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR
      00  00  00  00
 )" << std::endl;
 			startBossFight(player, boss, levelTier);
+			if (player.Health > 0)
+			{
+				enemyLoot = bossLootpool(Helms, Chest, Weapon, Boots, levelTier);
+				std::cout << "You have picked up a " << enemyLoot.weaponName << "!" << std::endl;
+				do
+				{
+					std::cout << "What do you want to do?\n1: Equip\n2: Put in inventory" << std::endl;
+					std::cin >> lootChoice;
+				} while (lootChoice < 0 || lootChoice > 2);
+				if (lootChoice == 1)
+				{
+					//characterEquip();
+				}
+				else
+				{
+
+				}
+			}
 		}
 		else if (*floorNum == 3)
 		{
