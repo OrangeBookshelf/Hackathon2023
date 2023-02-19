@@ -1,6 +1,7 @@
 #pragma once
 #include "hackathon.hpp"
 #include "Accessories.hpp"
+#include "Character.hpp"
 
 typedef enum type {
 	ENTRANCE = 1, BASIC, CHEST, EXIT, EMPTY
@@ -13,6 +14,7 @@ public:
 
 	//print the room
 	void printRoom();
+	void roomInteract(Character player, Character enemy);
 
 	//mutators
 	void setType(int newType);
@@ -25,6 +27,8 @@ public:
 	Type getType();
 	bool getOccupied();
 	bool getEnemy();
+	bool getItem();
+	bool getEnd();
 	//int getDoors();
 
 	//

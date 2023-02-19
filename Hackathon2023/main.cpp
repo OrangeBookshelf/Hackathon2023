@@ -5,6 +5,8 @@
 #include "dungeonTest.hpp"
 
 
+void roomInteract(Room room);
+
 int main(void) 
 {
     srand(time(NULL));
@@ -96,3 +98,5 @@ int main(void)
 
     return 0;
 }
+
+

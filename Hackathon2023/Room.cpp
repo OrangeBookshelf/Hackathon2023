@@ -39,6 +39,78 @@ void Room::printRoom()
 	}
 }
 
+
+void Room::roomInteract(Character player, Character foe)
+{
+	int index = 1, chest = 0, loot = 0, enemy = 0, sneak = 0, floor = 0, exit = 0, choice = 0;
+	int lootedChest = 0, lootedLoot = 0, enemyStatus = 0;
+	
+	if (roomType == CHEST)
+	{
+		std::cout << index << ": Loot the chest" << std::endl;
+		chest = index;
+		index++;
+	}
+	if (hasItem == true)
+	{
+		std::cout << index << ": Take the item off the ground" << std::endl;
+		loot = index;
+		index++;
+	}
+	if (isEnemy == true)
+	{
+		std::cout << index << ": Attack the enemy" << std::endl;
+		enemy = index;
+		index++;
+		std::cout << index << ": Try to sneak past the enemy" << std::endl;
+		sneak = index;
+		index++;
+	}
+	if (roomType != EXIT)
+	{
+		std::cout << index << ": Leave the room" << std::endl;
+		exit = index;
+		index++;
+	}
+	if (roomType == EXIT)
+	{
+		std::cout << index << ": Head lower in the dugeon" << std::endl;
+		floor = index;
+		index++;
+	}
+
+	do
+	{
+		std::cin >> choice;
+	} while (choice < 0 || choice >(index - 1));
+
+	if (choice == chest)
+	{
+		//looting
+
+	}
+	else if (choice == loot)
+	{
+		//looting
+	}
+	else if (choice == enemy)
+	{
+		startFight(player, foe);
+	}
+	else if (choice == sneak)
+	{
+		//sneak
+	}
+	else if (choice == floor)
+	{
+		//new floor
+	}
+	else if (choice == exit)
+	{
+		//go back
+	}
+}
+
 void Room::setType(int newType)
 {
 	if (newType == 1)
@@ -137,6 +209,16 @@ bool Room::getOccupied()
 bool Room::getEnemy()
 {
 	return isEnemy;
+}
+
+bool Room::getItem()
+{
+	return hasItem;
+}
+
+bool Room::getEnd()
+{
+	return isEnd;
 }
 
 //int Room::getDoors()
