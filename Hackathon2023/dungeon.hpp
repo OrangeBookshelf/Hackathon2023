@@ -1,6 +1,7 @@
 #pragma once
 #include "hackathon.hpp"
 #include "Accessories.hpp"
+#include "Character.hpp"
 
 typedef enum type {
 	ENTRANCE = 1, BASIC, CHEST, EXIT, EMPTY
@@ -25,7 +26,8 @@ public:
 
 	//
 
-	void populateRoom();
+	void populateRoom(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
+		Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE]);
 
 
 private:
