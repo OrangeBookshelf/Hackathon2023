@@ -42,11 +42,13 @@ void Room::printRoom()
 
 
 int Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
-	Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier, int*floorNum)
+	Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier, int*floorNum,
+	Accessories(&MySlots)[9])
 {
 	int index = 1, chest = 0, loot = 0, enemy = 0, sneak = 0, floor = 0, exit = 0, choice = 0;
-	int lootedChest = 0, lootedLoot = 0, enemyStatus = 0, leave = 0, lootChoice = 0;
+	int lootedChest = 0, lootedLoot = 0, enemyStatus = 0, leave = 0, lootChoice = 0, equip = 0;
 	Accessories enemyLoot;
+	Accessories droppedItem;
 	if ((*floorNum == 1 || *floorNum == 3 || *floorNum == 5) && roomType == EXIT)
 	{
 		BigBoss boss;
@@ -90,16 +92,22 @@ int Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR_
 				std::cout << "You have picked up a " << enemyLoot.weaponName << "!" << std::endl;
 				do
 				{
-					std::cout << "What do you want to do?\n1: Equip\n2: Put in inventory" << std::endl;
+					std::cout << "Select where to put it in your inventory." << std::endl;
+					printInventory(MySlots, player);
 					std::cin >> lootChoice;
-				} while (lootChoice < 0 || lootChoice > 2);
-				if (lootChoice == 1)
+				} while (lootChoice < 1 || lootChoice > 9);
+				droppedItem = player.Inventory(lootChoice-1, enemyLoot.attributeMod, enemyLoot.weaponType, enemyLoot.itemRarity,
+					enemyLoot.weaponName, PICKUP, MySlots);
+					std::cout << "You have dropped " << droppedItem.weaponName << "." << std::endl;
+				do
 				{
-					//characterEquip();
-				}
-				else
-				{
+					std::cout << "Would you like to equip it?\n[1] Y\n[2] N" << std::endl;
+					std::cin >> equip;
+				} while (equip < 1 || equip > 2);
 
+				if (equip == 1)
+				{
+					characterEquip(lootChoice, MySlots, player);
 				}
 			}
 		}
