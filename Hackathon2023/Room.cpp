@@ -265,13 +265,13 @@ int Room::roomInteract(Character& player, Character& foe, Accessories(&Helms)[AR
 			}
 			if (roomType == EXIT)
 			{
-				std::cout << index << ": Head to the next level in the dugeon" << std::endl;
+				std::cout << index << ": Head to the next level in the dungeon" << std::endl;
 				floor = index;
 				index++;
 			}
 			if (roomType != EXIT && isEnemy == false)
 			{
-				std::cout << index << ": Head further in the dugeon" << std::endl;
+				std::cout << index << ": Head further in the dungeon" << std::endl;
 				nextRoom = index;
 				index++;
 			}
