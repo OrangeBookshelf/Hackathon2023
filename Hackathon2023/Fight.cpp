@@ -35,7 +35,7 @@ void attack(Character& attacker, Character& defender, int prep)
 		}
 		else
 		{
-			std::cout << attacker.Name << " " << "missed!";
+			std::cout << attacker.Name << " " << "missed!" << std::endl;
 		}
 	}
 	else
@@ -82,7 +82,7 @@ void heal(Character& player, int prep)
 
 
 		player.Health += int(percentage);
-		//std::cout << "You healed for " << int(percentage) << " " << "Health!" << std::endl;
+		std::cout << "You healed for " << int(percentage) << " " << "Health!" << std::endl;
 	}
 }
 

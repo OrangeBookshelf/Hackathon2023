@@ -51,6 +51,8 @@ int Room::roomInteract(Character& player, Character& foe, Accessories(&Helms)[AR
 	Accessories droppedItem;
 	if ((*floorNum == 0 || *floorNum == 2 || *floorNum == 4) && roomType == EXIT)
 	{
+		system("pause");
+		system("cls");
 		BigBoss boss;
 		if (*floorNum == 0)
 		{
@@ -263,7 +265,7 @@ int Room::roomInteract(Character& player, Character& foe, Accessories(&Helms)[AR
 			}
 			if (roomType == EXIT)
 			{
-				std::cout << index << ": Head lower in the dugeon" << std::endl;
+				std::cout << index << ": Head to the next level in the dugeon" << std::endl;
 				floor = index;
 				index++;
 			}
@@ -278,6 +280,8 @@ int Room::roomInteract(Character& player, Character& foe, Accessories(&Helms)[AR
 			{
 				std::cin >> choice;
 			} while (choice < 0 || choice >(index - 1));
+			system("pause");
+			system("cls");
 
 			if (choice == chest && lootedChest != 1)
 			{
@@ -417,6 +421,8 @@ int Room::roomInteract(Character& player, Character& foe, Accessories(&Helms)[AR
 				return 3;
 				leave = 1;
 			}
+			system("pause");
+			system("cls");
 		}
 	}
 }
