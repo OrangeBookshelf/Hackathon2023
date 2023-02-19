@@ -147,6 +147,9 @@
     <ClInclude Include="dungeon.hpp" />
     <ClInclude Include="hackathon.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="ItemPool.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

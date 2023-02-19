@@ -1,12 +1,39 @@
 #include "Character.hpp"
 
-void Character::Inventory(int pos, int dmgMod, std::string weaponType, std::string weaponName, Maintain maintain)
+Accessories Character::Inventory(int pos, int dmgMod, std::string weaponType, 
+    std::string weaponName, Maintain maintain, Accessories (&MySlots)[9])
 {
-	Accessories invSlots[9] = { {0, "", ""}, {0, "", ""}, {0, "", ""}, {0, "", ""}, 
-		{0, "", ""}, {0, "", ""}, {0, "", ""}, {0, "", ""}, {0, "", ""} };
-	invSlots[pos].weaponName = weaponName;
-	invSlots[pos].weaponType = weaponType;
-	std::cout << invSlots[pos].weaponType << " \"" << invSlots[pos].weaponName << "\"" << std::endl;
+    Accessories tempItem;
+    tempItem.attributeMod = 0;
+    tempItem.weaponName = "Empty";
+    tempItem.weaponType = "Empty";
+
+    //Reading Stats of Weapon
+    if (maintain == VIEW)
+    {
+        std::cout << MySlots[pos].weaponType << " - - - \"" << MySlots[pos].weaponName << "\"\nDamage Modifier: "
+            << MySlots[pos].attributeMod << std::endl;
+    }    
+    //Picking up a weapon
+    else if (maintain == PICKUP)
+    {
+        MySlots[pos].attributeMod = dmgMod;
+        MySlots[pos].weaponName = weaponName;
+        MySlots[pos].weaponType = weaponType;
+        std::cout << MySlots[pos].weaponType << " - - - \"" << MySlots[pos].weaponName << "\"\nDamage Modifier: "
+            << MySlots[pos].attributeMod << std::endl;
+    }
+    //Dropping a weapon
+    else if (maintain == DROP)
+    {
+        tempItem.attributeMod = MySlots[pos].attributeMod;
+        tempItem.weaponName = MySlots[pos].weaponName;
+        tempItem.weaponType = MySlots[pos].weaponType;
+        MySlots[pos].attributeMod = 0;
+        MySlots[pos].weaponName = "Empty";
+        MySlots[pos].weaponType = "Empty";
+    }
+    return tempItem;
 }
 
 Character Enemy(int enemyType)
