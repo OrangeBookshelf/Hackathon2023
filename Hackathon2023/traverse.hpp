@@ -7,8 +7,8 @@ void placeAtStart(Character player, Dungeon& dungeon, Room** currentLocation);
 
 void findPlayer(int* floorNumber, int* roomNumber,Dungeon& dungeon, Room ** currentLocation);
 
-void moveRight(int* floorNumber, int* roomNumber, Dungeon& dungeon, Room ** currentLocation);
+bool moveRight(int* floorNumber, int* roomNumber, Dungeon& dungeon, Room ** currentLocation);
 
-void moveLeft(int* floorNumber, int* roomNumber, Dungeon& dungeon, Room** currentLocation);
+bool moveLeft(int* floorNumber, int* roomNumber, Dungeon& dungeon, Room** currentLocation);
 
 void descend(int* floorNumber, int* roomNumber, Dungeon& dungeon, Room** currentLocation);
