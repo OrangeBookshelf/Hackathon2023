@@ -1,5 +1,5 @@
 # Crimsoncode Hackathon 2023 
-Program Name: Dungeon Delvers
+Program Name: Dungeon Divers
 
     Programmed by:
 
