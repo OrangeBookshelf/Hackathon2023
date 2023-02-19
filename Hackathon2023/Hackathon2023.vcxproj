@@ -142,6 +142,7 @@
     <ClCompile Include="dungeonTest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Room.cpp" />
+    <ClCompile Include="traverse.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Accessories.hpp" />
@@ -149,6 +150,7 @@
     <ClInclude Include="dungeon.hpp" />
     <ClInclude Include="dungeonTest.hpp" />
     <ClInclude Include="hackathon.hpp" />
+    <ClInclude Include="traverse.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
