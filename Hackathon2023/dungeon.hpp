@@ -14,6 +14,7 @@ public:
 
 	//print the room
 	void printRoom();
+	void roomInteract(Character player, Character enemy);
 
 	//mutators
 	void setType(int newType);
@@ -26,6 +27,8 @@ public:
 	Type getType();
 	bool getOccupied();
 	bool getEnemy();
+	bool getItem();
+	bool getEnd();
 	//int getDoors();
 
 	//
