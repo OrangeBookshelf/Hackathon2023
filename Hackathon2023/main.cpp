@@ -9,7 +9,7 @@ int main(void)
     srand(time(NULL));
     int menuChoice = 0, floor = 1, room = 0;
 
-    std::cout << "GAME NAME" << std::endl;
+    std::cout << "DESCENT" << std::endl;
     do
     {
         std::cout << "1: Play\n2: Quit" << std::endl;
