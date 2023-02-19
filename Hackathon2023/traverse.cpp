@@ -22,7 +22,6 @@ void findPlayer(int* floorNumber, int* roomNumber, Dungeon& dungeon, Room** curr
 void moveRight(int* floorNumber, int* roomNumber, Dungeon& dungeon, Room** currentLocation) {
 	if (*roomNumber != 12) {
 		(*currentLocation)->setOccupied(0);
-		(*floorNumber)++;
 		(*roomNumber)++;
 		dungeon.floors[*floorNumber].getRooms()[*roomNumber].setOccupied(1);
 	}
@@ -32,8 +31,14 @@ void moveRight(int* floorNumber, int* roomNumber, Dungeon& dungeon, Room** curre
 void moveLeft(int* floorNumber, int* roomNumber, Dungeon& dungeon, Room** currentLocation) {
 	if (*roomNumber != 0) {
 		(*currentLocation)->setOccupied(0);
-		(*floorNumber)--;
 		(*roomNumber)--;
 		dungeon.floors[*floorNumber].getRooms()[*roomNumber].setOccupied(1);
 	}
+	*currentLocation = &dungeon.floors[*floorNumber].getRooms()[*roomNumber];
+}
+
+void descend(int* floorNumber, int* roomNumber, Dungeon& dungeon, Room** currentLocation) {
+	(*floorNumber)++;
+	*roomNumber = 0;
+	*currentLocation = &dungeon.floors[*floorNumber].getRooms()[*roomNumber];
 }

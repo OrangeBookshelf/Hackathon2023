@@ -73,7 +73,11 @@ int main(void)
         findPlayer(&floorNumber, &roomNumber, dungeon, &currentLocation);
         moveRight(&floorNumber, &roomNumber, dungeon, &currentLocation);
         std::cout << currentLocation->getType();
-        moveLeft(&floorNumber, &roomNumber, dungeon, &currentLocation);
+        //moveLeft(&floorNumber, &roomNumber, dungeon, &currentLocation);
+        //std::cout << currentLocation->getType();
+        //moveLeft(&floorNumber, &roomNumber, dungeon, &currentLocation);
+        //std::cout << currentLocation->getType();
+        descend(&floorNumber, &roomNumber, dungeon, &currentLocation);
         std::cout << currentLocation->getType();
 
 

@@ -10,3 +10,5 @@ void findPlayer(int* floorNumber, int* roomNumber,Dungeon& dungeon, Room ** curr
 void moveRight(int* floorNumber, int* roomNumber, Dungeon& dungeon, Room ** currentLocation);
 
 void moveLeft(int* floorNumber, int* roomNumber, Dungeon& dungeon, Room** currentLocation);
+
+void descend(int* floorNumber, int* roomNumber, Dungeon& dungeon, Room** currentLocation);
