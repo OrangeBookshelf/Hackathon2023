@@ -17,7 +17,12 @@ void Floor::setFloor(Floor floor) {
 	}
 
 	//place entrance
+	x = rand() % 7;
+	y = rand() % 7;
 
+	grid[y][x].setType(1);
+	grid[y][x].setDoors();
 
 	
+
 }

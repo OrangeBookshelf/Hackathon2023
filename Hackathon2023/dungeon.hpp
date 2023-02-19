@@ -24,12 +24,15 @@ private:
 	bool isOccupied;
 	bool isEnemy;
 	int doors;
+
+
 };
 
 class Floor {
 public:
 	void setFloor(Floor floor);
 private:
+	Room grid[7][7];
 	Room rooms[16];
 
 };
