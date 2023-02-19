@@ -1,4 +1,5 @@
 #include "dungeon.hpp"
+#include "traverse.hpp"
 
 // Room constructor
 Room::Room() {
@@ -40,7 +41,7 @@ void Room::printRoom()
 }
 
 
-void Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
+int Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
 	Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier, int*floorNum)
 {
 	int index = 1, chest = 0, loot = 0, enemy = 0, sneak = 0, floor = 0, exit = 0, choice = 0;
@@ -178,7 +179,7 @@ void Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR
 				sneak = index;
 				index++;
 			}
-			if (roomType != EXIT)
+			if (roomType != ENTRANCE)
 			{
 				std::cout << index << ": Leave the room" << std::endl;
 				exit = index;
@@ -226,18 +227,21 @@ void Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR
 				}
 				else
 				{
-					//next room
+					//next room (1)
+					return 1;
 					leave = 1;
 				}
 			}
 			else if (choice == floor)
 			{
-				//new floor
+				//new floor (2)
+				return 2;
 				leave = 1;
 			}
 			else if (choice == exit)
 			{
-				//go back
+				//go back (3)
+				return 3;
 				leave = 1;
 			}
 		}
