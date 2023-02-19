@@ -139,6 +139,30 @@ int Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR_
           000   000  000
 )" << std::endl;
 			startBossFight(player, boss, levelTier);
+			if (player.Health > 0)
+			{
+				enemyLoot = bossLootpool(Helms, Chest, Weapon, Boots, levelTier);
+				std::cout << "You have picked up a " << enemyLoot.weaponName << "!" << std::endl;
+				do
+				{
+					std::cout << "Select where to put it in your inventory." << std::endl;
+					printInventory(MySlots, player);
+					std::cin >> lootChoice;
+				} while (lootChoice < 1 || lootChoice > 9);
+				droppedItem = player.Inventory(lootChoice - 1, enemyLoot.attributeMod, enemyLoot.weaponType, enemyLoot.itemRarity,
+					enemyLoot.weaponName, PICKUP, MySlots);
+				std::cout << "You have dropped " << droppedItem.weaponName << "." << std::endl;
+				do
+				{
+					std::cout << "Would you like to equip it?\n[1] Y\n[2] N" << std::endl;
+					std::cin >> equip;
+				} while (equip < 1 || equip > 2);
+
+				if (equip == 1)
+				{
+					characterEquip(lootChoice, MySlots, player);
+				}
+			}
 		}
 		else
 		{
@@ -179,6 +203,30 @@ int Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR_
      0000000000000
 )" << std::endl;
 			startBossFight(player, boss, levelTier);
+			if (player.Health > 0)
+			{
+				enemyLoot = bossLootpool(Helms, Chest, Weapon, Boots, levelTier);
+				std::cout << "You have picked up a " << enemyLoot.weaponName << "!" << std::endl;
+				do
+				{
+					std::cout << "Select where to put it in your inventory." << std::endl;
+					printInventory(MySlots, player);
+					std::cin >> lootChoice;
+				} while (lootChoice < 1 || lootChoice > 9);
+				droppedItem = player.Inventory(lootChoice - 1, enemyLoot.attributeMod, enemyLoot.weaponType, enemyLoot.itemRarity,
+					enemyLoot.weaponName, PICKUP, MySlots);
+				std::cout << "You have dropped " << droppedItem.weaponName << "." << std::endl;
+				do
+				{
+					std::cout << "Would you like to equip it?\n[1] Y\n[2] N" << std::endl;
+					std::cin >> equip;
+				} while (equip < 1 || equip > 2);
+
+				if (equip == 1)
+				{
+					characterEquip(lootChoice, MySlots, player);
+				}
+			}
 		}
 	}
 	else
@@ -240,6 +288,31 @@ int Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR_
 			else if (choice == enemy && enemyStatus != 1)
 			{
 				startFight(player, foe);
+				if (player.Health > 0)
+				{
+					enemyLoot = itemLootpool(Helms, Chest, Weapon, Boots, levelTier);
+					std::cout << "You have picked up a " << enemyLoot.weaponName << "!" << std::endl;
+					do
+					{
+						std::cout << "Select where to put it in your inventory." << std::endl;
+						printInventory(MySlots, player);
+						std::cin >> lootChoice;
+					} while (lootChoice < 1 || lootChoice > 9);
+					droppedItem = player.Inventory(lootChoice - 1, enemyLoot.attributeMod, enemyLoot.weaponType, enemyLoot.itemRarity,
+						enemyLoot.weaponName, PICKUP, MySlots);
+					std::cout << "You have dropped " << droppedItem.weaponName << "." << std::endl;
+					do
+					{
+						std::cout << "Would you like to equip it?\n[1] Y\n[2] N" << std::endl;
+						std::cin >> equip;
+					} while (equip < 1 || equip > 2);
+
+					if (equip == 1)
+					{
+						characterEquip(lootChoice, MySlots, player);
+					}
+				}
+				isEnemy = false;
 				enemyStatus = 1;
 			}
 			else if (choice == sneak)
@@ -250,6 +323,31 @@ int Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR_
 				if (goal > evade)
 				{
 					startFight(player, foe);
+					if (player.Health > 0)
+					{
+						enemyLoot = itemLootpool(Helms, Chest, Weapon, Boots, levelTier);
+						std::cout << "You have picked up a " << enemyLoot.weaponName << "!" << std::endl;
+						do
+						{
+							std::cout << "Select where to put it in your inventory." << std::endl;
+							printInventory(MySlots, player);
+							std::cin >> lootChoice;
+						} while (lootChoice < 1 || lootChoice > 9);
+						droppedItem = player.Inventory(lootChoice - 1, enemyLoot.attributeMod, enemyLoot.weaponType, enemyLoot.itemRarity,
+							enemyLoot.weaponName, PICKUP, MySlots);
+						std::cout << "You have dropped " << droppedItem.weaponName << "." << std::endl;
+						do
+						{
+							std::cout << "Would you like to equip it?\n[1] Y\n[2] N" << std::endl;
+							std::cin >> equip;
+						} while (equip < 1 || equip > 2);
+
+						if (equip == 1)
+						{
+							characterEquip(lootChoice, MySlots, player);
+						}
+					}
+					isEnemy = false;
 					enemyStatus = 1;
 				}
 				else
