@@ -129,6 +129,42 @@ void characterEquip(int pos, Accessories(&MySlots)[9], Character& Player)
         Player.SpD += Player.Boots.attributeMod;
     }
 }
+
+void printInventory(Accessories(&MySlots)[9], Character& Player)
+{
+    int i = 0;
+    std::string temp = "Helmet";
+    std::string piecePrint = Player.Helmet.weaponName;
+    int attributeChange = Player.Helmet.attributeMod;
+    for (i = 0; i < 4; i++)
+    {
+        if (i == 1)
+        {
+            temp = "Chestpiece";
+            piecePrint = Player.Chestplate.weaponName;
+            attributeChange = Player.Chestplate.attributeMod;
+        }
+        else if (i == 2)
+        {
+            temp = "Weapon";
+            piecePrint = Player.Weapon.weaponName;
+            attributeChange = Player.Weapon.attributeMod;
+        }
+        else
+        {
+            temp = "Boots";
+            piecePrint = Player.Boots.weaponName;
+            attributeChange = Player.Boots.attributeMod;
+        }
+        std::cout << temp << " " << piecePrint << " - +" << attributeChange << "modifier" << std::endl;
+    }
+    std::cout << "\n";
+    for (i = 0; i < 9; i++)
+    {
+        std::cout << "[" << i+1 << "] " << MySlots[i].weaponType << " " << MySlots[i].weaponName << " - +" << MySlots[i].attributeMod << " modifier\n";
+    }
+}
+
 //Determines which enemy is encounted or if none
 Character Enemy(int enemyType, int& levelTier)
 {

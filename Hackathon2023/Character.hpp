@@ -41,7 +41,7 @@ void attack(Character attacker, Character defender, int prep);
 
 void heal(Character player, int prep);
 void characterEquip(int pos, Accessories(&MySlots)[9], Character &Player);
-
+void printInventory(Accessories(&MySlots)[9], Character& Player);
 
 void bossAttack(BigBoss attacker, Character defender, int prep);
 void attackBoss(BigBoss defender, Character attacker, int prep);
