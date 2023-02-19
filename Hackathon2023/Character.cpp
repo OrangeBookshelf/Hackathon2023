@@ -259,7 +259,7 @@ Accessories itemLootpool(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_
     tempLoot.weaponName = "Empty";
     tempLoot.weaponType = "Empty";
     
-    int oddsIncrease = 1 - levelTier;
+    int oddsIncrease = levelTier - 1;
 
     int random = rand() % 20 + 1;
     if (random <= 10 - oddsIncrease)
