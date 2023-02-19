@@ -36,10 +36,32 @@ int main(void)
     Accessories lootItem = { 0, NONE, "Empty", "Empty" };
 
     Character player;
+    player.Name = "You";
     player.Health = 100;
     player.Atk = 35;
     player.Def = 5;
     player.SpD = 25;
+
+    player.Helmet.attributeMod = 0;
+    player.Helmet.itemRarity = NONE;
+    player.Helmet.weaponName = "Empty";
+    player.Helmet.weaponType = "Empty";
+
+    player.Chestplate.attributeMod = 0;
+    player.Chestplate.itemRarity = NONE;
+    player.Chestplate.weaponName = "Empty";
+    player.Chestplate.weaponType = "Empty";
+
+    player.Weapon.attributeMod = 0;
+    player.Weapon.itemRarity = NONE;
+    player.Weapon.weaponName = "Empty";
+    player.Weapon.weaponType = "Empty";
+
+    player.Boots.attributeMod = 0;
+    player.Boots.itemRarity = NONE;
+    player.Boots.weaponName = "Empty";
+    player.Boots.weaponType = "Empty";
+
     Character enemy;
 
     Room* currentLocation = NULL;
