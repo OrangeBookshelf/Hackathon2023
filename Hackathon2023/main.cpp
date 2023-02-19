@@ -10,6 +10,7 @@ void roomInteract(Room room);
 int main(void) 
 {
     srand(time(NULL));
+    int levelTier = 1;
     int menuChoice = 0, floor = 1, room = 0;
 
     std::cout << R"(
@@ -62,6 +63,8 @@ int main(void)
         {15, RARE, "Boots", "Bootshoe"}, {20, EPIC, "Boots", "Steeltipped"}, {30, LEGENDARY, "Boots", "Templarboots"}};
 
     Accessories floorItem = { 0, NONE, "Empty", "Empty" };
+
+    Accessories lootItem = { 0, NONE, "Empty", "Empty" };
    
     Character player;
     player.Health = 100;
@@ -78,6 +81,10 @@ int main(void)
    // floorItem = player.Inventory(1, 5, "Weapons", LEGENDARY, "Long Burger", DROP, invSlots);
 
     std::cout << invSlots[1].weaponName << std::endl;
+    levelTier = 3;
+    lootItem = itemLootpool(Helmets, ChestPiece, Weapons, Boots);
+
+    std::cout << "aaaaaaaaaa" << lootItem.weaponName << std::endl;
 
     characterEquip(1, invSlots, player);
     std::cout << player.Atk << std::endl;
@@ -87,7 +94,7 @@ int main(void)
     std::cout << player.Atk << std::endl;
     std::cout << invSlots[1].weaponName << std::endl;
 
-    enemy = Enemy(3);
+    enemy = Enemy(3, 1);
     std::cout << enemy.Name << std::endl;
 
     player.Helmet.attributeMod = 0;

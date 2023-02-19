@@ -33,7 +33,8 @@ public:
 
 	//
 
-	void populateRoom();
+	void populateRoom(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
+		Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE]);
 
 
 private:
