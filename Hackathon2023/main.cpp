@@ -4,6 +4,7 @@
 #include "dungeon.hpp"
 #include "dungeonTest.hpp"
 
+
 int main(void) 
 {
     srand(time(NULL));
@@ -31,31 +32,20 @@ int main(void)
 
         //this is where the entire program goes
          
-        while (floor != 5)
-        {
-            
-
-
-
-
-            floor++;
-        }
-
-
     }
     Accessories invSlots[9] = { {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"},
     {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"} };
     //modifies health
-    Accessories Helmets[6] = { {10, COMMON, "Helmet", "Cap"}, {10, COMMON, "Helmet", "Chaincap"}, {15, RARE, "Helmet", "Ironhelm"},
+    Accessories Helmets[ARR_SIZE] = { {10, COMMON, "Helmet", "Cap"}, {10, COMMON, "Helmet", "Chaincap"}, {15, RARE, "Helmet", "Ironhelm"},
         {15, RARE, "Helmet", "Hood"}, {20, EPIC, "Helmet", "Steelhelm"}, {25, LEGENDARY, "Helmet", "Templarhelm"}};
     //modifies defense
-    Accessories ChestPiece[6] = { {2, COMMON, "ChestPiece", "Rags"}, {3, COMMON, "ChestPiece", "Robes"}, {5, RARE, "ChestPiece", "Chestplate"},
+    Accessories ChestPiece[ARR_SIZE] = { {2, COMMON, "ChestPiece", "Rags"}, {3, COMMON, "ChestPiece", "Robes"}, {5, RARE, "ChestPiece", "Chestplate"},
         {5, RARE, "ChestPiece", "Chainmail"}, {7, EPIC, "ChestPiece", "Heavyplate"}, {10, LEGENDARY, "ChestPiece", "Templarplate"} };
     //modifies attack
-    Accessories Weapons[6] = { {3, COMMON, "Weapons", "Dagger" }, { 3, COMMON, "Weapons", "Knife" }, {4, RARE, "Weapons", "Sword"}, 
+    Accessories Weapons[ARR_SIZE] = { {3, COMMON, "Weapons", "Dagger" }, { 3, COMMON, "Weapons", "Knife" }, {4, RARE, "Weapons", "Sword"}, 
         {4, RARE, "Weapons", "Hatchet"}, {5, EPIC, "Weapons", "Axe"}, {6, LEGENDARY, "Weapons", "Longsword"} };
     //modifies speed
-    Accessories Boots[6] = { {5, COMMON, "Boots", "Tornboot"}, {5, COMMON, "Boots", "Peasantboots"}, {10, RARE, "Boots", "Greaves"},
+    Accessories Boots[ARR_SIZE] = { {5, COMMON, "Boots", "Tornboot"}, {5, COMMON, "Boots", "Peasantboots"}, {10, RARE, "Boots", "Greaves"},
         {15, RARE, "Boots", "Bootshoe"}, {20, EPIC, "Boots", "Steeltipped"}, {30, LEGENDARY, "Boots", "Templarboots"}};
 
     Accessories floorItem = { 0, NONE, "Empty", "Empty" };

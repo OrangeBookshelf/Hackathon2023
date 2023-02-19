@@ -21,6 +21,7 @@ public:
 	Accessories Chestplate;
 	Accessories Weapon;
 	Accessories Boots;
+	int tier;
 };
 
 class BigBoss
@@ -40,4 +41,5 @@ void attack(Character attacker, Character defender, int prep);
 
 void heal(Character player, int prep);
 void characterEquip(int pos, Accessories(&MySlots)[9], Character &Player);
-Character Enemy(int enemyType);
+Accessories itemLootpool(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
+	Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE]);
