@@ -261,7 +261,7 @@ void startFight(Character player, Character enemy)
 }
 
 
-void startBossFight(Character player, BigBoss boss)
+void startBossFight(Character player, BigBoss boss, int & levelTier)
 {
 	int choice = 0, prepChoice = 0, cooldown = 0;
 	while (player.Health > 0 || boss.Health > 0)
@@ -326,7 +326,7 @@ void startBossFight(Character player, BigBoss boss)
 			{
 				do
 				{
-					std::cout << "What would you like to do?\n1: Prep attack chances (you will have a guarnteed hit next turn)\n2: Prep damage (will do much more damage next turn)\n3: Prep heal (heal will heal you for 50% max)\n" << std::endl;
+					std::cout << "What would you like to do?\n1: Prep defense (you will take no damage until after your next tuen)\n2: Prep damage (will do much more damage next turn)\n3: Prep heal (heal will heal you for 50% max)\n" << std::endl;
 					std::cin >> prepChoice;
 				} while (prepChoice > 3 || prepChoice < 1);
 				cooldown = 2;
@@ -336,5 +336,9 @@ void startBossFight(Character player, BigBoss boss)
 				cooldown--;
 			}
 		}
+	}
+	if (player.Health > 0)
+	{
+		levelTier++;
 	}
 }
