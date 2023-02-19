@@ -40,24 +40,25 @@ void Room::printRoom()
 }
 
 
-void Room::roomInteract(Character player, Character foe)
+void Room::roomInteract(Character player, Character foe, Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
+	Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier)
 {
 	int index = 1, chest = 0, loot = 0, enemy = 0, sneak = 0, floor = 0, exit = 0, choice = 0;
 	int lootedChest = 0, lootedLoot = 0, enemyStatus = 0;
 	
-	if (roomType == CHEST)
+	if (roomType == CHEST && lootedChest != 1)
 	{
 		std::cout << index << ": Loot the chest" << std::endl;
 		chest = index;
 		index++;
 	}
-	if (hasItem == true)
+	if (hasItem == true && lootedLoot != 1)
 	{
 		std::cout << index << ": Take the item off the ground" << std::endl;
 		loot = index;
 		index++;
 	}
-	if (isEnemy == true)
+	if (isEnemy == true && enemyStatus != 1)
 	{
 		std::cout << index << ": Attack the enemy" << std::endl;
 		enemy = index;
@@ -84,22 +85,38 @@ void Room::roomInteract(Character player, Character foe)
 		std::cin >> choice;
 	} while (choice < 0 || choice >(index - 1));
 
-	if (choice == chest)
+	if (choice == chest && lootedChest != 1)
 	{
 		//looting
+		itemLootpool(Helms, Chest, Weapon, Boots, levelTier);
 
+		lootedChest = 1;
 	}
-	else if (choice == loot)
+	else if (choice == loot && lootedLoot != 1)
 	{
 		//looting
+		itemLootpool(Helms, Chest, Weapon, Boots, levelTier);
+		lootedLoot = 1;
 	}
-	else if (choice == enemy)
+	else if (choice == enemy && enemyStatus != 1)
 	{
 		startFight(player, foe);
+		enemyStatus = 1;
 	}
 	else if (choice == sneak)
 	{
 		//sneak
+		int evade = 25 + player.SpD;
+		int goal = (rand() % 100) + 1;
+		if (goal > evade)
+		{
+			startFight(player, foe);
+			enemyStatus = 1;
+		}
+		else
+		{
+			//next room
+		}
 	}
 	else if (choice == floor)
 	{
