@@ -49,10 +49,10 @@ int Room::roomInteract(Character& player, Character& foe, Accessories(&Helms)[AR
 	int lootedChest = 0, lootedLoot = 0, enemyStatus = 0, leave = 0, lootChoice = 0, equip = 0, nextRoom = 0;
 	Accessories enemyLoot;
 	Accessories droppedItem;
-	if ((*floorNum == 1 || *floorNum == 3 || *floorNum == 5) && roomType == EXIT)
+	if ((*floorNum == 0 || *floorNum == 2 || *floorNum == 4) && roomType == EXIT)
 	{
 		BigBoss boss;
-		if (*floorNum == 1)
+		if (*floorNum == 0)
 		{
 			//centaur
 			boss = Boss(3);
@@ -110,7 +110,7 @@ int Room::roomInteract(Character& player, Character& foe, Accessories(&Helms)[AR
 				}
 			}
 		}
-		else if (*floorNum == 3)
+		else if (*floorNum == 2)
 		{
 			boss = Boss(2);
 			std::cout << "You see a Direwolf, eyeing you hungrily" << std::endl;
@@ -257,7 +257,7 @@ int Room::roomInteract(Character& player, Character& foe, Accessories(&Helms)[AR
 			}
 			if (roomType != ENTRANCE)
 			{
-				std::cout << index << ": Leave the room" << std::endl;
+				std::cout << index << ": Go back the way you came" << std::endl;
 				exit = index;
 				index++;
 			}
@@ -267,7 +267,7 @@ int Room::roomInteract(Character& player, Character& foe, Accessories(&Helms)[AR
 				floor = index;
 				index++;
 			}
-			if (roomType == ENTRANCE)
+			if (roomType != EXIT && isEnemy == false)
 			{
 				std::cout << index << ": Head further in the dugeon" << std::endl;
 				nextRoom = index;
