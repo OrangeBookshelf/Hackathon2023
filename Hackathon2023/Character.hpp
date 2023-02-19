@@ -15,7 +15,7 @@ public:
 	int Atk; //35
 	int Def; //5
 	int SpD; //25
-	Accessories Inventory(int pos, int dmgMod, std::string weaponType,
+	Accessories Inventory(int pos, int dmgMod, std::string weaponType, Rarity howRare,
 		std::string weaponName, Maintain maintain, Accessories(&MySlots)[9]);
 	Accessories Helmet;
 	Accessories Chestplate;
@@ -28,3 +28,5 @@ Character Enemy(int enemyType);
 void attack(Character attacker, Character defender, int prep);
 
 void heal(Character player, int prep);
+void characterEquip();
+Character Enemy(int enemyType);
