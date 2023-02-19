@@ -46,6 +46,11 @@ int main(void)
     enemy = Enemy(3);
     std::cout << enemy.Name << std::endl;
 
+    player.Helmet.attributeMod = 0;
+
+    attack(enemy, player, 0);
+    heal(player, 3);
+
 
     return 0;
 }

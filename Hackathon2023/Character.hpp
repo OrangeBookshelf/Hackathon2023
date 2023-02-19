@@ -22,3 +22,7 @@ public:
 };
 
 Character Enemy(int enemyType);
+
+void attack(Character attacker, Character defender, int prep);
+
+void heal(Character player, int prep);
