@@ -1,11 +1,17 @@
 #include "dungeon.hpp"
 
-//constructor
+// Room constructor
 Room::Room() {
 	roomType = EMPTY;
 	isOccupied = false;
 	isEnemy = false;
 	isEnd = false;
+	hasItem = false;
+	item.attributeMod = 0;
+	item.itemRarity = NONE;
+	item.weaponType = "Empty";
+	item.weaponName = "Empty";
+	description = "description";
 }
 
 void Room::setType(int newType)
@@ -112,6 +118,27 @@ bool Room::getEnemy()
 //{
 //	return doors;
 //}
+
+//isenemy, hasitem, what item
+void Room::populateRoom() {
+	setEnemy();
+	switch (roomType) {
+	case BASIC:
+		if (rand() % 20 < 4) {
+			hasItem = true;
+		}
+		//item creation
+
+
+		break;
+	case CHEST:
+		hasItem = true;
+
+		//item creation
+
+		break;		
+	}
+}
 
 
 

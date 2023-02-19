@@ -1,5 +1,6 @@
 #pragma once
 #include "hackathon.hpp"
+#include "Accessories.hpp"
 
 typedef enum type {
 	ENTRANCE = 1, BASIC, CHEST, EXIT, EMPTY
@@ -22,12 +23,21 @@ public:
 	bool getEnemy();
 	//int getDoors();
 
+	//
+
+	void populateRoom();
+
 
 private:
 	Type roomType;
 	bool isOccupied;
 	bool isEnemy;
 	bool isEnd;
+	bool hasItem;
+	Accessories item;
+
+	std::string description;
+
 };
 
 class Floor {
