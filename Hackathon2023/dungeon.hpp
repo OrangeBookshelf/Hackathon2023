@@ -2,7 +2,7 @@
 #include "hackathon.hpp"
 
 typedef enum type {
-	ENTRANCE = 1, BASIC, CHEST, EXIT
+	ENTRANCE = 1, BASIC, CHEST, EXIT, EMPTY
 }Type;
 
 class Room {
@@ -13,27 +13,20 @@ public:
 	void setType(int newType);
 	void setEnemy(void);
 	void setOccupied(int occupied);
-	void setDoors(void);
-	void setDirection(int direction);
+	//void setDoors(void);
 
 	//accessors
 	Type getType();
 	bool getOccupied();
 	bool getEnemy();
-	int getDoors();
-	bool getDirection(int direction);
+	//int getDoors();
 
 
 private:
 	Type roomType;
 	bool isOccupied;
 	bool isEnemy;
-	int doors;
-
-	bool north;
-	bool south;
-	bool east;
-	bool west;
+	bool isEnd;
 };
 
 class Floor {
@@ -41,17 +34,23 @@ public:
 	//constructor
 	Floor();
 
-	void setFloor(Floor floor);
+	void setFloor(Floor& floor);
+
+	void printFloorType(Floor floor);
+
 private:
-	Room grid[7][7];
-	Room rooms[16];
+	Room rooms[12];
 
 };
 
 class Dungeon {
 public:
-	void generate();
+	//constructor
+	Dungeon();
+
+	void generate(Dungeon& dungeon);
 
 	Floor floors[5];
 };
+
 
