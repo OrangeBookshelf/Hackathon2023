@@ -32,6 +32,17 @@ int main(void)
 
         //this is where the entire program goes
          
+        while (floor != 5)
+        {
+            
+
+
+
+
+            floor++;
+        }
+
+
     }
     Accessories invSlots[9] = { {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"},
     {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"}, {0, NONE, "Empty", "Empty"} };
@@ -57,6 +68,7 @@ int main(void)
     player.SpD = 25;
 
     Character enemy;
+    BigBoss boss;
 
     floorItem = player.Inventory(1, 5, "Weapons", LEGENDARY, "Long Burger", VIEW, invSlots);
     player.Inventory(1, 5, "Weapons", LEGENDARY, "Long Burger",PICKUP, invSlots);
