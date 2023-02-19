@@ -63,30 +63,34 @@ int main(void)
 
     if (menuChoice == 1)
     {
-
+        player.Chestplate.weaponName = "Poopy";
+        player.Chestplate.attributeMod = 40;
+        printInventory(invSlots, player);
         //this is where the entire program goes
 
         dungeon.Dungeon::generate(dungeon, Helmets, ChestPiece, Weapons, Boots, levelTier);
-
         placeAtStart(player, dungeon, &currentLocation);
-        std::cout << currentLocation->getType();
         findPlayer(&floorNumber, &roomNumber, dungeon, &currentLocation);
-        moveRight(&floorNumber, &roomNumber, dungeon, &currentLocation);
-        std::cout << currentLocation->getType();
-        //moveLeft(&floorNumber, &roomNumber, dungeon, &currentLocation);
-        //std::cout << currentLocation->getType();
-        //moveLeft(&floorNumber, &roomNumber, dungeon, &currentLocation);
-        //std::cout << currentLocation->getType();
-        descend(&floorNumber, &roomNumber, dungeon, &currentLocation);
-        std::cout << currentLocation->getType();
 
+        while (levelTier != 4 && player.Health > 0)
+        {
+            //this where game go
+            player.Health = 0;
+
+        }
+
+        if (levelTier == 4)
+        {
+            std::cout << "You win!" << std::endl;
+        }
+        else
+        {
+            std::cout << "Game over" << std::endl;
+        }
 
         system("pause");
         system("cls");
         
     }
-
     return 0;
 }
-
-
