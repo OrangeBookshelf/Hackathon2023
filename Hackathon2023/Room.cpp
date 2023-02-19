@@ -494,7 +494,7 @@ void Room::populateRoom(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_S
 	setEnemy();
 	switch (roomType) {
 	case ENTRANCE:
-
+		description = "You are in the entrance.";
 		break;
 	case BASIC:
 		if (rand() % 20 < 4) {
@@ -502,7 +502,7 @@ void Room::populateRoom(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_S
 			//item creation
 			item = itemLootpool(Helms, Chest, Weapon, Boots, levelTier);
 		}
-		
+		description = "You walk into another room.";
 
 		break;
 	case CHEST:
@@ -510,7 +510,12 @@ void Room::populateRoom(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_S
 
 		//item creation
 		item = itemLootpool(Helms, Chest, Weapon, Boots, levelTier);
+
+	description: "This room has a chest.";
 		break;		
+	case EXIT:
+		description = "You walk into a room that seems to have an exit further down";
+		break;
 	}
 }
 
