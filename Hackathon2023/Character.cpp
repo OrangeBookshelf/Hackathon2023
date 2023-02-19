@@ -515,24 +515,24 @@ BigBoss Boss(int bossType)
     if (bossType == 1)
     {
         thisBoss.Name = "Paladin";
-        thisBoss.Health = 125;
-        thisBoss.Atk = 45;
+        thisBoss.Health = 100;
+        thisBoss.Atk = 40;
         thisBoss.Def = 15;
         thisBoss.SpD = 15;
     }
     else if (bossType == 2)
     {
         thisBoss.Name = "Direwolf";
-        thisBoss.Health = 500;
-        thisBoss.Atk = 45;
+        thisBoss.Health = 225;
+        thisBoss.Atk = 40;
         thisBoss.Def = 7;
         thisBoss.SpD = 50;
     }
     else if (bossType == 3)
     {
         thisBoss.Name = "Centaur";
-        thisBoss.Health = 150;
-        thisBoss.Atk = 50;
+        thisBoss.Health = 125;
+        thisBoss.Atk = 45;
         thisBoss.Def = 5;
         thisBoss.SpD = 50;
     }
