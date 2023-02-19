@@ -6,4 +6,4 @@
 
 
 
-int levelTier = 1;
+static int levelTier = 1;
