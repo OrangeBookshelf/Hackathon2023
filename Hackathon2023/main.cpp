@@ -1,11 +1,13 @@
 #include "hackathon.hpp"
 #include "Accessories.hpp"
 #include "Character.hpp"
+#include "dungeon.hpp"
+#include "dungeonTest.hpp"
 
 int main(void) 
 {
     srand(time(NULL));
-    int menuChoice = 0;
+    int menuChoice = 0, floor = 1, room = 0;
 
     std::cout << "GAME NAME" << std::endl;
     do
@@ -16,11 +18,21 @@ int main(void)
 
     if (menuChoice == 1)
     {
+        testSetFloor();
         system("pause");
         system("cls");
 
         //this is where the entire program goes
          
+        while (floor != 5)
+        {
+            
+
+
+
+
+            floor++;
+        }
 
 
     }
