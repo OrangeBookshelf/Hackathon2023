@@ -8,7 +8,7 @@ void Floor::printFloorType(Floor floor) {
 	std::cout << std::endl;
 }
 
-//constructor
+//Floor constructor
 Floor::Floor() {
 	for (int i = 0; i < 12; i++) {
 		Room holder;
@@ -16,7 +16,7 @@ Floor::Floor() {
 	}
 }
 
-//constructor
+//Dungeon constructor
 Dungeon::Dungeon() {
 	for (int i = 0; i < 5; i++) {
 		Floor holder;
@@ -38,6 +38,7 @@ void Floor::setFloor(Floor& floor) {
 
 	//place entrance
 	floor.rooms[roomCount].setType(1);
+	floor.rooms[roomCount].populateRoom();
 	roomCount++;
 	//place next 3
 	int chest = rand() % 3;
@@ -48,6 +49,7 @@ void Floor::setFloor(Floor& floor) {
 		else {
 			floor.rooms[roomCount + i].setType(2);
 		}
+		floor.rooms[roomCount+i].populateRoom();
 	}
 	roomCount = 4;
 	//place next 4
@@ -59,6 +61,8 @@ void Floor::setFloor(Floor& floor) {
 		else {
 			floor.rooms[roomCount + i].setType(2);
 		}
+		floor.rooms[roomCount + i].populateRoom();
+
 	}
 	roomCount = 8;
 	//place last 4
@@ -70,6 +74,8 @@ void Floor::setFloor(Floor& floor) {
 		else {
 			floor.rooms[roomCount + i].setType(2);
 		}
+		floor.rooms[roomCount + i].populateRoom();
+
 	}
 	floor.rooms[11].setEnd(true);
 }
