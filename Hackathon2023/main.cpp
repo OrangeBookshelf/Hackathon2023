@@ -63,9 +63,6 @@ int main(void)
 
     if (menuChoice == 1)
     {
-        player.Chestplate.weaponName = "Poopy";
-        player.Chestplate.attributeMod = 40;
-        printInventory(invSlots, player);
         //this is where the entire program goes
 
         dungeon.Dungeon::generate(dungeon, Helmets, ChestPiece, Weapons, Boots, levelTier);
@@ -75,6 +72,7 @@ int main(void)
         while (levelTier != 4 && player.Health > 0)
         {
             //this where game go
+            currentLocation->printRoom();
             player.Health = 0;
 
         }
