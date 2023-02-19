@@ -17,7 +17,7 @@ void attack(Character attacker, Character defender, int prep)
 		}
 		else if (crement == 2)
 		{
-			attackDamage = attacker.Atk;
+			attackDamage = attacker.Atk - defender.Def;
 		}
 		else
 		{
