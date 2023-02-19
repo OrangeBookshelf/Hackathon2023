@@ -104,7 +104,6 @@ int main(void)
             //give/get options
 
             //move if needed
-            roomNumber++;
         }
 
         if (levelTier == 4)

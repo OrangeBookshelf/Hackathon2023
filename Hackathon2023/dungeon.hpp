@@ -14,7 +14,7 @@ public:
 
 	//print the room
 	void printRoom();
-	int roomInteract(Character player, Character enemy, Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
+	int roomInteract(Character& player, Character& foe, Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
 		Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier, int* floorNum,
 		Accessories(&MySlots)[9]);
 

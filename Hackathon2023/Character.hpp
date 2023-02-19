@@ -37,18 +37,18 @@ public:
 Character Enemy(int enemyType, int& levelTier);
 BigBoss Boss(int bossType);
 
-void attack(Character attacker, Character defender, int prep);
+void attack(Character& attacker, Character& defender, int prep);
 
-void heal(Character player, int prep);
+void heal(Character& player, int prep);
 void characterEquip(int pos, Accessories(&MySlots)[9], Character &Player);
 void printInventory(Accessories(&MySlots)[9], Character& Player);
 
-void bossAttack(BigBoss attacker, Character defender, int prep);
-void attackBoss(BigBoss defender, Character attacker, int prep);
+void bossAttack(BigBoss& attacker, Character& defender, int prep);
+void attackBoss(BigBoss& defender, Character& attacker, int prep);
 Accessories itemLootpool(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
 	Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier);
 Accessories bossLootpool(Accessories(&Helms)[ARR_SIZE], Accessories(&Chest)[ARR_SIZE],
 	Accessories(&Weapon)[ARR_SIZE], Accessories(&Boots)[ARR_SIZE], int& levelTier);
-void startBossFight(Character player, BigBoss boss, int& levelTier);
+void startBossFight(Character& player, BigBoss& boss, int& levelTier);
 
-void startFight(Character player, Character enemy);
+void startFight(Character& player, Character& enemy);
