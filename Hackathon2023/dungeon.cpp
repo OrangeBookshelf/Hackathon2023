@@ -71,4 +71,5 @@ void Floor::setFloor(Floor& floor) {
 			floor.rooms[roomCount + i].setType(2);
 		}
 	}
+	floor.rooms[11].setEnd(true);
 }
