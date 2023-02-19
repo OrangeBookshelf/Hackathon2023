@@ -30,6 +30,11 @@ void Dungeon::generate(Dungeon& dungeon) {
 	}
 }
 
+Room* Floor::getRooms() {
+	return rooms;
+}
+
+
 void Floor::setFloor(Floor& floor) {
 	int x = 0;
 	int y = 0;

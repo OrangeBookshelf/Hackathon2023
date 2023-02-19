@@ -49,6 +49,8 @@ public:
 	//constructor
 	Floor();
 
+	Room* getRooms();
+
 	void setFloor(Floor& floor);
 
 	void printFloorType(Floor floor);
