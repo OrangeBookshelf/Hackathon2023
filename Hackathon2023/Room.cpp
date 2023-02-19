@@ -214,7 +214,6 @@ int Room::roomInteract(Character& player, Character& foe, Accessories(&Helms)[AR
 				} while (lootChoice < 1 || lootChoice > 9);
 				droppedItem = player.Inventory(lootChoice - 1, enemyLoot.attributeMod, enemyLoot.weaponType, enemyLoot.itemRarity,
 					enemyLoot.weaponName, PICKUP, MySlots);
-				std::cout << "You have dropped " << droppedItem.weaponName << "." << std::endl;
 				do
 				{
 					std::cout << "Would you like to equip it?\n[1] Y\n[2] N" << std::endl;
@@ -293,7 +292,6 @@ int Room::roomInteract(Character& player, Character& foe, Accessories(&Helms)[AR
 				} while (lootChoice < 1 || lootChoice > 9);
 				droppedItem = player.Inventory(lootChoice - 1, enemyLoot.attributeMod, enemyLoot.weaponType, enemyLoot.itemRarity,
 					enemyLoot.weaponName, PICKUP, MySlots);
-				std::cout << "You have dropped " << droppedItem.weaponName << "." << std::endl;
 				do
 				{
 					std::cout << "Would you like to equip it?\n[1] Y\n[2] N" << std::endl;
@@ -320,7 +318,6 @@ int Room::roomInteract(Character& player, Character& foe, Accessories(&Helms)[AR
 				} while (lootChoice < 1 || lootChoice > 9);
 				droppedItem = player.Inventory(lootChoice - 1, enemyLoot.attributeMod, enemyLoot.weaponType, enemyLoot.itemRarity,
 					enemyLoot.weaponName, PICKUP, MySlots);
-				std::cout << "You have dropped " << droppedItem.weaponName << "." << std::endl;
 				do
 				{
 					std::cout << "Would you like to equip it?\n[1] Y\n[2] N" << std::endl;
@@ -348,7 +345,6 @@ int Room::roomInteract(Character& player, Character& foe, Accessories(&Helms)[AR
 					} while (lootChoice < 1 || lootChoice > 9);
 					droppedItem = player.Inventory(lootChoice - 1, enemyLoot.attributeMod, enemyLoot.weaponType, enemyLoot.itemRarity,
 						enemyLoot.weaponName, PICKUP, MySlots);
-					std::cout << "You have dropped " << droppedItem.weaponName << "." << std::endl;
 					do
 					{
 						std::cout << "Would you like to equip it?\n[1] Y\n[2] N" << std::endl;
