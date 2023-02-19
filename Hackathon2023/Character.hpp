@@ -4,17 +4,19 @@
 
 typedef enum maintain
 {
-	NONE = 0, PICKUP = 1, DROP = 2
+	VIEW = 0, PICKUP = 1, DROP = 2
 }Maintain;
 
-class Character {
+class Character 
+{
 public:
 	std::string Name;
 	int Health; //100 
 	int Atk; //35
 	int Def; //5
 	int SpD; //25
-	void Inventory(int pos, int dmgMod, std::string weaponType, std::string weaponName, Maintain maintain);
+	Accessories Inventory(int pos, int dmgMod, std::string weaponType,
+		std::string weaponName, Maintain maintain, Accessories(&MySlots)[9]);
 	Accessories Helmet;
 	Accessories Chestplate;
 	Accessories Weapon;
