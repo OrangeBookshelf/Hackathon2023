@@ -17,6 +17,7 @@ public:
 	Type getType();
 	bool getOccupied();
 	bool getEnemy();
+	int getDoors();
 
 
 private:

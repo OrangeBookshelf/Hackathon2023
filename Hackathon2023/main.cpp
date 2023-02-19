@@ -1,9 +1,11 @@
 #include "hackathon.hpp"
 #include "Accessories.hpp"
 #include "Character.hpp"
+#include "dungeon.hpp"
 
 int main(void) 
 {
+    srand(time(NULL));
     int menuChoice = 0;
 
     std::cout << "GAME NAME" << std::endl;
@@ -20,7 +22,6 @@ int main(void)
 
         //this is where the entire program goes
          
-        srand(time(NULL));
 
     }
     

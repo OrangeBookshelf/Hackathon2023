@@ -29,7 +29,7 @@ void Room::setEnemy(void)
 	}
 	else if (roomType == BASIC)
 	{
-		int random = rand() % 5;
+		int random = (rand() % 5) + 1;
 		if (random == 1 || random == 2)
 		{
 			isEnemy = true;
@@ -68,9 +68,13 @@ void Room::setDoors(void)
 	{
 		doors = 1;
 	}
-	else if (roomType == BASIC)
+	else if (roomType == BASIC || roomType == CHEST)
 	{
-		//dead ends? Hmm
+		doors = ((rand() % 3) + 2);
+	}
+	else
+	{
+		doors = 1;
 	}
 }
 
@@ -89,4 +93,9 @@ bool Room::getOccupied()
 bool Room::getEnemy()
 {
 	return isEnemy;
+}
+
+int Room::getDoors()
+{
+	return doors;
 }
