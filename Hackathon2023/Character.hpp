@@ -23,7 +23,18 @@ public:
 	Accessories Boots;
 };
 
+class BigBoss
+{
+public:
+	std::string Name;
+	int Health;
+	int Atk;
+	int Def;
+	int SpD;
+};
+
 Character Enemy(int enemyType);
+BigBoss Boss(int bossType);
 
 void attack(Character attacker, Character defender, int prep);
 

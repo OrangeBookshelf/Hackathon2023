@@ -82,3 +82,41 @@ Character Enemy(int enemyType)
     }
     return thisEnemy;
 }
+
+BigBoss Boss(int bossType)
+{
+    BigBoss thisBoss;
+    if (bossType == 1)
+    {
+        thisBoss.Name = "Paladin";
+        thisBoss.Health = 250;
+        thisBoss.Atk = 50;
+        thisBoss.Def = 15;
+        thisBoss.SpD = 15;
+    }
+    else if (bossType == 2)
+    {
+        thisBoss.Name = "Direwolf";
+        thisBoss.Health = 500;
+        thisBoss.Atk = 45;
+        thisBoss.Def = 7;
+        thisBoss.SpD = 50;
+    }
+    else if (bossType == 3)
+    {
+        thisBoss.Name = "Centaur";
+        thisBoss.Health = 300;
+        thisBoss.Atk = 55;
+        thisBoss.Def = 5;
+        thisBoss.SpD = 50;
+    }
+    else
+    {
+        thisBoss.Name = "None";
+        thisBoss.Health = 0;
+        thisBoss.Atk = 0;
+        thisBoss.Def = 0;
+        thisBoss.SpD = 0;
+    }
+    return thisBoss;
+}
